@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<!--		=============== FloorCoverings ============ 				-->
+
+	<ThingDef Name="BuildingTerrainCoveringBase" ParentName="BuildingBase" Abstract="True">
+	  <wipesPlants>false</wipesPlants>
+	  <statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Beauty>1</Beauty>
+			<WorkToBuild>8</WorkToBuild>
+			<Mass>100</Mass>
+			<Flammability>0</Flammability>
+	  </statBases>	  
+	  <canGenerateDefaultDesignator>true</canGenerateDefaultDesignator>
+	  <designationCategory>Floors</designationCategory>
+	  <selectable>true</selectable>
+	  <neverMultiSelect>false</neverMultiSelect>
+	  <useHitPoints>true</useHitPoints>
+	  <defaultPlacingRot>South</defaultPlacingRot>
+	  <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+	  <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+	  <tradeability>None</tradeability>
+	  <destroyOnDrop>true</destroyOnDrop>
+	  <castEdgeShadows>false</castEdgeShadows>
+	  <blockLight>false</blockLight>
+	  <fillPercent>0</fillPercent>
+	  <building>
+			<alwaysDeconstructible>true</alwaysDeconstructible>
+			<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+			<ai_neverTrashThis>true</ai_neverTrashThis>
+			<paintable>true</paintable>
+			<isEdifice>false</isEdifice>
+	  </building>
+	</ThingDef>
+
+	<ThingDef Name="BuildingTerrainCoveringSingleBase" ParentName="BuildingTerrainCoveringBase" Abstract="True">
+		<size>(1,1)</size>
+		<!--<blocksAltitudes><li>FloorCoverings</li></blocksAltitudes>-->
+		<designationCategory>Floors</designationCategory>
+		<statBases>
+		  <Beauty>5</Beauty>
+		  <WorkToBuild>10</WorkToBuild>
+		  <Mass>100</Mass>
+		</statBases>
+	</ThingDef>
+			  
+<!--  ========= Medium Puzzle Top ======== -->			  
+			  
+	<ThingDef Name="Rockstep_Medium_Edge" ParentName="BuildingTerrainCoveringSingleBase">
+		<defName>Rockstep_Medium_Edge</defName>
+		<label>Medium Ledge</label>
+		<description>A stone bas relief of morbid imagery for decorating a floor.</description>
+		<designationCategory>Floors</designationCategory>
+		<uiOrder>2057</uiOrder>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(3,3)</drawSize>
+			<drawOffsetSouth>(0,0.5,-0.25)</drawOffsetSouth>
+			<drawOffset>(0,0.5,-0.25)</drawOffset>
+			<linkFlags>
+				<li>Custom1</li>
+			</linkFlags>
+			<texPath>Things/Building/StepCoverings/RockstepThreeEdge</texPath>
+		</graphicData>
+		<altitudeLayer>Floor</altitudeLayer>
+		<blocksAltitudes>
+			<li>Floor</li>
+		</blocksAltitudes>
+		<!--<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat> -->
+		<!--<pathCost>10</pathCost> 0,5,10..+3-->
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<building>
+			<isFence>true</isFence>
+			<paintable>true</paintable>
+		</building>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>1</costStuffCount>
+		<researchPrerequisites>
+		  <li>Stonecutting</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+<!-- Puzzle Medium Height Front -->
+	
+	<ThingDef Name="Rockstep_Medium_Corner" ParentName="BuildingTerrainCoveringSingleBase">
+		<defName>Rockstep_Medium_Corner</defName>
+		<label>Medium Ledge Corners</label>
+		<description>A stone bas relief of morbid imagery for decorating a floor.</description>
+		<designationCategory>Floors</designationCategory>
+		<uiOrder>2058</uiOrder>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(3,3)</drawSize>
+			<drawOffsetSouth>(0,0.5,-0.25)</drawOffsetSouth>
+			<drawOffset>(0,0.5,-0.25)</drawOffset>
+			<texPath>Things/Building/StepCoverings/RockstepThreeCorner</texPath>
+		</graphicData>
+		<altitudeLayer>Floor</altitudeLayer>
+		<blocksAltitudes>
+			<li>Floor</li>
+		</blocksAltitudes>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<building>
+			<isFence>true</isFence>
+			<paintable>true</paintable>
+		</building>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>1</costStuffCount>
+		<researchPrerequisites>
+		  <li>Stonecutting</li>
+		</researchPrerequisites>
+	</ThingDef>  
+	
+<!-- ====== Medium 1x1 Single ======= -->
+
+<ThingDef Name="Rockstep_Medium_Single" ParentName="BuildingTerrainCoveringSingleBase">
+		<defName>Rockstep_Medium_Single</defName>
+		<label>Rockstep Shader</label>
+		<description>Use this to really make your hills shine. Pillar NS Shader EW</description>
+		<uiOrder>2059</uiOrder>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<drawOffset>(0,0.5,-0.25)</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+			<texPath>Things/Building/StepCoverings/RockstepThreeSingle</texPath>
+		</graphicData>
+		<altitudeLayer>Floor</altitudeLayer>
+		<blocksAltitudes>
+			<li>Floor</li>
+		</blocksAltitudes>
+		<neverMultiSelect>false</neverMultiSelect>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<designationCategory>Floors</designationCategory>
+		<building>
+			<isFence>true</isFence>
+			<paintable>true</paintable>
+		</building>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>1</costStuffCount>
+		<researchPrerequisites>
+		  <li>Stonecutting</li>
+		</researchPrerequisites>
+	</ThingDef>  
+  
+<!-- ================== Shortest Slope Linked ======================= -->  
+  
+  <!--<ThingDef Name="Simple_Ledge" ParentName="BuildingTerrainCoveringSingleBase">-->
+		<!--<defName>Simple_Ledge</defName>-->
+		<!--<label>Ledge</label>-->
+		<!--<description>A stone bas relief of morbid imagery for decorating a floor.</description>-->
+		<!--<graphicData>-->
+			<!--<graphicClass>Graphic_Single</graphicClass>-->
+			<!--<drawSize>(1,1)</drawSize>-->
+			<!--<drawOffsetSouth>(0,0,0)</drawOffsetSouth>-->
+			<!--<drawOffsetNorth>(0,0,-0.25)</drawOffsetNorth>-->
+			<!--<texPath>Things/Building/StepCoverings/LedgeSimple</texPath>-->
+		<!--</graphicData>-->
+		<!--<passability>Standable</passability>-->
+		
+		<!--<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>-->
+		<!--<building>-->
+			<!--<isFence>true</isFence>-->
+			<!--<paintable>true</paintable>-->
+		<!--</building>-->
+		<!--<stuffCategories>-->
+			<!--<li>Stony</li>-->
+		<!--</stuffCategories>-->
+		<!--<costStuffCount>1</costStuffCount>-->
+		<!--<researchPrerequisites>-->
+		  <!--<li>Stonecutting</li>-->
+		<!--</researchPrerequisites>-->
+	<!--</ThingDef>  -->
+ 
+ 
+ <!-- ========= Linked Graphics Variant (100% transparency, TODO make fill shader) ================= -->
+ 
+	<ThingDef Name="Rockstep_Short_Linked" ParentName="BuildingTerrainCoveringSingleBase">
+		<defName>Rockstep_Short_Linked</defName>
+		<label>Medium Slope (Linked)</label>
+		<description>An elevated section of rock or earth raising the ground.</description>
+		<graphicData>
+			<texPath>Things/Building/Linked/Rockstep</texPath>
+			<graphicClass>Graphic_Appearances</graphicClass>
+			<color>(230,230,230)</color>
+		<linkType>Asymmetric</linkType>
+		<linkFlags>
+			<li>Custom1</li>
+		</linkFlags>
+		<asymmetricLink>
+			<linkFlags>
+				  <li>Wall</li>
+				  <li>Rock</li>
+			</linkFlags>
+		</asymmetricLink>
+		</graphicData>
+		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
+		<uiIconPathsStuff>
+		  <li>
+			<appearance>Bricks</appearance>
+			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
+		  </li>
+		</uiIconPathsStuff>
+		<neverMultiSelect>false</neverMultiSelect>
+		<placingDraggableDimensions>2</placingDraggableDimensions>
+		<altitudeLayer>FloorCoverings</altitudeLayer>
+		<blocksAltitudes>
+			<li>FloorCoverings</li>
+		</blocksAltitudes>
+		
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<thingClass>Building</thingClass>
+		<designationCategory>Floors</designationCategory>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0</fillPercent>
+		<building>
+			<isFence>true</isFence>
+			<isInert>true</isInert>
+			<paintable>true</paintable>
+		</building>
+		<stuffCategories>
+			<li>Stony</li>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>1</costStuffCount>
+		<researchPrerequisites>
+		  <li>Stonecutting</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+<!-- ================== Double Height, Under Slope, Linked =================== --> 	
+	
+	<ThingDef Name="Rockstep_Lower_Linked" ParentName="BuildingTerrainCoveringSingleBase">
+		<defName>Rockstep_Lower_Linked</defName>
+		<label>Full Slope Lower (Linked)</label>
+		<description>Now Less Janky! Build under medium slopes or edges for double height terrain</description>
+		<graphicData>
+			<texPath>Things/Building/Linked/Rockstep1</texPath>
+			<graphicClass>Graphic_Appearances</graphicClass>
+			<color>(230,230,230)</color>
+			<linkType>Asymmetric</linkType>
+			<linkFlags>
+				<li>Custom2</li>
+			</linkFlags>
+			<asymmetricLink>
+				<linkFlags>
+						<li>Wall</li>
+						<li>Rock</li>
+						<li>Custom1</li>
+				</linkFlags>
+			</asymmetricLink>
+			<!--<shadowData></shadowData> is there a way to cast them under invis?? -->
+		</graphicData>
+		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
+		<uiIconPathsStuff>
+		  <li>
+			<appearance>Bricks</appearance>
+			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
+		  </li>
+		</uiIconPathsStuff>
+		<selectable>true</selectable>
+		<neverMultiSelect>false</neverMultiSelect>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<altitudeLayer>Floor</altitudeLayer>
+		<blocksAltitudes>
+			<li>FloorEmplacement</li>
+		</blocksAltitudes>
+		<passability>PassThroughOnly</passability>
+		<pathCostIgnoreRepeat>false</pathCostIgnoreRepeat>
+		<pathCost>10</pathCost> <!--0,5,10..+3-->
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<thingClass>Building</thingClass>
+		<designationCategory>Floors</designationCategory>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0</fillPercent>
+		<building>
+			<isFence>true</isFence>
+			<isInert>true</isInert>
+			<paintable>true</paintable>
+		</building>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>1</costStuffCount>
+		<researchPrerequisites>
+		  <li>Stonecutting</li>
+		</researchPrerequisites>
+	</ThingDef>
+</Defs>
