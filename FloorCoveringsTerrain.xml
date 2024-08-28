@@ -212,7 +212,7 @@
 		  </li>
 		  <li>
 			<appearance>Planks</appearance>
-			<iconPath>Things/Building/Linked/WallSmoothMenuIcon</iconPath>
+			<iconPath>Things/Building/Linked/WallSmooth_MenuIcon</iconPath>
 		  </li>
 		</uiIconPathsStuff>
 		<neverMultiSelect>false</neverMultiSelect>
