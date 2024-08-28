@@ -204,11 +204,15 @@
 			</linkFlags>
 		</asymmetricLink>
 		</graphicData>
-		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
+		<uiIconPath>Things/Building/Linked/WallBricks_MenuIcon</uiIconPath>
 		<uiIconPathsStuff>
 		  <li>
-			<appearance>Bricks</appearance>
-			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
+			<appearance>Smooth</appearance>
+			<iconPath>Things/Building/Linked/WallSmooth_MenuIcon</iconPath>
+		  </li>
+		  <li>
+			<appearance>Planks</appearance>
+			<iconPath>Things/Building/Linked/WallSmoothMenuIcon</iconPath>
 		  </li>
 		</uiIconPathsStuff>
 		<neverMultiSelect>false</neverMultiSelect>
