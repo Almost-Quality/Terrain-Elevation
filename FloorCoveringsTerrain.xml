@@ -183,7 +183,7 @@
 	<!--</ThingDef>  -->
  
  
- <!-- ========= Linked Graphics Variant (100% transparency, TODO make fill shader) ================= -->
+ <!-- ========= Medium (Linked Graphics Variant) (100% transparency, TODO make fill shader) ================= -->
  
 	<ThingDef Name="Rockstep_Short_Linked" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>Rockstep_Short_Linked</defName>
@@ -235,6 +235,7 @@
 		<stuffCategories>
 			<li>Stony</li>
 			<li>Metallic</li>
+			<li>Woody</li>
 		</stuffCategories>
 		<costStuffCount>1</costStuffCount>
 		<researchPrerequisites>
