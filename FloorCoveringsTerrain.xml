@@ -212,7 +212,7 @@
 		  </li>
 		  <li>
 			<appearance>Planks</appearance>
-			<iconPath>Things/Building/Linked/WallSmooth_MenuIcon</iconPath>
+			<iconPath>Things/Building/Linked/WallPlanks_MenuIcon</iconPath>
 		  </li>
 		</uiIconPathsStuff>
 		<neverMultiSelect>false</neverMultiSelect>
@@ -272,6 +272,10 @@
 			<appearance>Bricks</appearance>
 			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
 		  </li>
+		  <li>
+			<appearance>Planks</appearance>
+			<iconPath>Things/Building/Linked/WallPlanks_MenuIcon</iconPath>
+		  </li>
 		</uiIconPathsStuff>
 		<selectable>true</selectable>
 		<neverMultiSelect>false</neverMultiSelect>
@@ -296,6 +300,7 @@
 		<stuffCategories>
 			<li>Metallic</li>
 			<li>Stony</li>
+			<li>Woody</li>
 		</stuffCategories>
 		<costStuffCount>1</costStuffCount>
 		<researchPrerequisites>
