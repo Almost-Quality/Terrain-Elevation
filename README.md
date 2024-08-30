@@ -6,8 +6,8 @@ insert cool environmental interactions here
 
 generation options
 
-![spiral](https://github.com/Almost-Quality/Terrain-Elevation/blob/main/preview/spiral.png)
+![spiral](https://github.com/Almost-Quality/Terrain-Elevation/blob/main/spiral.png)
 
-![channels](https://github.com/Almost-Quality/Terrain-Elevation/blob/main/preview/channels.png)
+![channels](https://github.com/Almost-Quality/Terrain-Elevation/blob/main/channels.png)
 
-![crater](https://github.com/Almost-Quality/Terrain-Elevation/blob/main/preview/crater.png)
+![crater](https://github.com/Almost-Quality/Terrain-Elevation/blob/main/crater.png)
