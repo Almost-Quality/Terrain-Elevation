@@ -4,7 +4,7 @@
 	<packageId>Quality.TestTerrainMod</packageId>
 	<supportedVersions><li>1.5</li></supportedVersions>
 	<author>Quality</author>
-	<url></url>
+	<url>https://github.com/Almost-Quality/Terrain-Elevation</url>
 	<loadBefore></loadBefore>
 	<loadAfter></loadAfter>
 	<modDependencies></modDependencies>
