@@ -11,3 +11,5 @@ generation options
 ![channels](https://github.com/Almost-Quality/Terrain-Elevation/blob/main/channels.png)
 
 ![crater](https://github.com/Almost-Quality/Terrain-Elevation/blob/main/crater.png)
+
+![outpost delta](https://github.com/Almost-Quality/Terrain-Elevation/blob/main/Outpost%20Delta.png)
