@@ -204,7 +204,7 @@
 <ThingDef ParentName="Rockstep_Light_Shader"> <!-- Level 0 -->
 	<defName>Rockstep_ShaderZ</defName>
 	<label>Level ground</label>
-	<description>Low, level terrain, just on average for the nearby area.
+	<description>Low, level terrain, just on average for the nearby area.</description>
 	<graphicData>
 		<texPath>Things/Building/StepCoverings/RockstepThreeSingleBlank</texPath> <!-- empty texture -->
 	</graphicData>
@@ -217,7 +217,7 @@
 <ThingDef ParentName="Rockstep_Medium_Shader">
 	<defName>Rockstep_ShaderA</defName>
 	<label>Elevated ground</label>
-	<description>A gentle, barely remarkable change to ground height. It's just a little uneven. </description>
+	<description>A gentle, barely remarkable change to ground height. It's just a little uneven.</description>
 	<graphicData>
 		<color>(110,110,110)</color>
 	</graphicData>
@@ -334,7 +334,6 @@
 			<linkFlags>
 				  <li>Wall</li>
 				  <li>Rock</li>
-				  <li>Doors</li>
 				  <li>Custom2</li>
 				  <li>Custom3</li>
 			</linkFlags>
@@ -396,7 +395,6 @@
 			<linkFlags>
 				  <li>Wall</li>
 				  <li>Rock</li>
-				  <li>Doors</li>
 			</linkFlags>
 		</asymmetricLink>
 		</graphicData>
@@ -457,7 +455,6 @@
 				<linkFlags>
 						<li>Wall</li>
 						<li>Rock</li>
-						<li>Doors</li>
 						<li>Custom2</li> <!-- Graphics depend on link type, should always be outside floor level -->
 				</linkFlags>
 			</asymmetricLink>
