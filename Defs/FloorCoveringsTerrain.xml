@@ -7,7 +7,7 @@
 	  <statBases>
 			<MaxHitPoints>300</MaxHitPoints>
 			<Beauty>0</Beauty>
-			<WorkToBuild>8</WorkToBuild>
+			<WorkToBuild>110</WorkToBuild>
 			<Mass>100</Mass>
 			<Flammability>0</Flammability>
 	  </statBases>	  
@@ -40,8 +40,6 @@
 		<designationCategory>Floors</designationCategory>
 		<statBases>
 		  <Beauty>1</Beauty>
-		  <WorkToBuild>10</WorkToBuild>
-		  <Mass>100</Mass>
 		</statBases>
 	</ThingDef>
 			  
@@ -166,27 +164,23 @@
 
 <ThingDef Name="Rockstep_Light_Shader" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 	<defName>Rockstep_Light_Shader</defName>
-	<label>Rockstep Shader</label>
+		<label>Rockstep Shader</label>
 		<uiOrder>2801</uiOrder>
 		<designatorDropdown>Rockstep_ShaderLevels</designatorDropdown>
 		<placingDraggableDimensions>2</placingDraggableDimensions>
+		<rotatable>false</rotatable>
 		<statBases>
 			<WorkToBuild>0</WorkToBuild>
-			<Beauty>0</Beauty> <!-- No free beauty, come back when it costs work -->
+			<Beauty>0</Beauty> <!-- No free beauty, come back when it costs work / materials -->
 		</statBases>
-		<graphicData>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,3)</drawSize>
-			<drawOffset>(0,-1,0)</drawOffset>
-			<shaderType>Transparent</shaderType>
-			<texPath>Things/Building/StepCoverings/RockstepThreeSingleShader</texPath>
-		</graphicData>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<selectable>false</selectable>
-		<neverMultiSelect>false</neverMultiSelect>
+		<neverMultiSelect>true</neverMultiSelect>
 		<useHitPoints>false</useHitPoints>
 		<designationCategory>Floors</designationCategory>
 		<building>
+			<canPlaceOverWall>true</canPlaceOverWall>
+			<isPlaceOverableWall>true</isPlaceOverableWall>
 			<isFence>false</isFence>
 			<paintable>false</paintable>
 		</building>
@@ -198,36 +192,42 @@
 
 <ThingDef Name="Rockstep_Medium_Shader" ParentName="Rockstep_Light_Shader" Abstract="True">
 		<defName>Rockstep_Medium_Shader</defName>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<drawOffset>(0,-1,0)</drawOffset>
+			<shaderType>Transparent</shaderType>
+			<texPath>Things/Building/StepCoverings/RockstepThreeSingleShader</texPath>
+		</graphicData>
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 </ThingDef>  
+
+<!-- ============== Neither of these works as intended, save for generation or terrain changes?? =============================== -->	
+	<!--<ThingDef ParentName="Rockstep_Light_Shader">--> <!-- Level 0 -->
+		<!--	<defName>Rockstep_ShaderZ</defName>-->
+		<!--	<label>Level ground</label>-->
+		<!--	<description>Low, level terrain, just on average for the nearby area.</description>-->
+		<!--	<graphicData>-->
+		<!--		<graphicClass>Graphic_Single</graphicClass>-->
+		<!--		<texPath>Things/Building/StepCoverings/RockstepThreeSingleBlank</texPath>--> <!-- empty texture -->
+		<!--	</graphicData>-->
+		<!--	<altitudeLayer>FloorCoverings</altitudeLayer>-->
+		<!--	<blocksAltitudes>-->
+		<!--		<li>FloorCoverings</li> --> <!-- No difference, some steps are very flat -->
+		<!--	</blocksAltitudes>-->
+	<!--</ThingDef>	-->
 	
-<ThingDef ParentName="Rockstep_Light_Shader"> <!-- Level 0 -->
-	<defName>Rockstep_ShaderZ</defName>
-	<label>Level ground</label>
-	<description>Low, level terrain, just on average for the nearby area.</description>
-	<graphicData>
-		<texPath>Things/Building/StepCoverings/RockstepThreeSingleBlank</texPath> <!-- empty texture -->
-	</graphicData>
-	<altitudeLayer>FloorCoverings</altitudeLayer>
-	<blocksAltitudes>
-			<li>Floor</li>
-	</blocksAltitudes>
-</ThingDef>	
-	
-<ThingDef ParentName="Rockstep_Medium_Shader">
-	<defName>Rockstep_ShaderA</defName>
-	<label>Elevated ground</label>
-	<description>A gentle, barely remarkable change to ground height. It's just a little uneven.</description>
-	<graphicData>
-		<color>(110,110,110)</color>
-	</graphicData>
-	<terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded> 
-	<altitudeLayer>FloorCoverings</altitudeLayer> <!-- Exclusive with all steps -->
-	<blocksAltitudes>
-			<li>Floor</li>
-			<li>FloorCoverings</li>
-	</blocksAltitudes>
-</ThingDef>
+	<!--<ThingDef ParentName="Rockstep_Medium_Shader">                  Not significant  -->
+		<!--<defName>Rockstep_ShaderA</defName>-->
+		<!--<label>Elevated ground</label>-->
+		<!--<description>A gentle, barely remarkable change to ground height. It's just a little uneven.</description>-->
+		<!--<graphicData>-->
+		<!--	<color>(110,110,110)</color>-->
+		<!--</graphicData>-->
+		<!--<terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>--> 
+		<!--<altitudeLayer>FloorCoverings</altitudeLayer>-->
+		<!--		<blocksAltitudes>	<li>FloorCoverings</li> </blocksAltitudes>-->
+	<!--</ThingDef>-->
 
 <ThingDef ParentName="Rockstep_Medium_Shader">
 	<defName>Rockstep_ShaderB</defName>
@@ -236,10 +236,9 @@
 	<graphicData>
 		<color>(160,160,160)</color>
 	</graphicData>
-	<terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
-	<altitudeLayer>FloorCoverings</altitudeLayer> <!-- try to make exclusive for lowest layer elevation? -->
+	<altitudeLayer>FloorCoverings</altitudeLayer>
 	<blocksAltitudes>
-			<li>FloorCoverings</li>
+		<li>FloorCoverings</li>
 	</blocksAltitudes>
 </ThingDef>
   
@@ -250,7 +249,6 @@
 	<graphicData>
 		<color>(200,200,200)</color>
 	</graphicData>
-	<terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
 	<altitudeLayer>FloorCoverings</altitudeLayer>
 	<blocksAltitudes>
 		<li>FloorCoverings</li>
@@ -265,7 +263,6 @@
 	<graphicData>
 		<color>(240,240,240)</color>
 	</graphicData>
-	<terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
 	<altitudeLayer>FloorCoverings</altitudeLayer>
 	<blocksAltitudes>
 		<li>FloorCoverings</li>
@@ -277,7 +274,7 @@
 	<label>Full height outcrop</label>
 	<description>A prominently elevated section of rock raising the ground.</description>
 	<graphicData>
-		<color>(140,140,250)</color>
+		<color>(180,180,240)</color>
 	</graphicData>
 	<terrainAffordanceNeeded>SmoothableStone</terrainAffordanceNeeded>
 	<altitudeLayer>FloorCoverings</altitudeLayer>
@@ -339,15 +336,15 @@
 			</linkFlags>
 		</asymmetricLink>
 		</graphicData>
-		<uiIconPath>Things/Building/Linked/WallBricks_MenuIcon</uiIconPath>
+		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
 		<uiIconPathsStuff>
-		  <li>
-			<appearance>Smooth</appearance>
-			<iconPath>Things/Building/Linked/WallSmooth_MenuIcon</iconPath>
-		  </li>
 		  <li>
 			<appearance>Planks</appearance>
 			<iconPath>Things/Building/Linked/WallPlanks_MenuIcon</iconPath>
+		  </li>
+		  <li>
+			<appearance>Bricks</appearance>
+			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
 		  </li>
 		</uiIconPathsStuff>
 		<neverMultiSelect>false</neverMultiSelect>
@@ -398,15 +395,15 @@
 			</linkFlags>
 		</asymmetricLink>
 		</graphicData>
-		<uiIconPath>Things/Building/Linked/WallBricks_MenuIcon</uiIconPath>
+		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
 		<uiIconPathsStuff>
-		  <li>
-			<appearance>Smooth</appearance>
-			<iconPath>Things/Building/Linked/WallSmooth_MenuIcon</iconPath>
-		  </li>
 		  <li>
 			<appearance>Planks</appearance>
 			<iconPath>Things/Building/Linked/WallPlanks_MenuIcon</iconPath>
+		  </li>
+		  <li>
+			<appearance>Bricks</appearance>
+			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
 		  </li>
 		</uiIconPathsStuff>
 		<neverMultiSelect>false</neverMultiSelect>
@@ -442,7 +439,7 @@
 	<ThingDef Name="Rockstep_Slope_Linked" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>Rockstep_Slope_Linked</defName>
 		<label>Full Slope</label>
-		<description>Now Less Janky! Build under medium slopes or edges for double height terrain</description>
+		<description>Now Less Janky! Build on medium slopes or edges for double height terrain</description>
 		<graphicData>
 			<texPath>Things/Building/Linked/Rockstep1</texPath>
 			<graphicClass>Graphic_Appearances</graphicClass>
@@ -455,7 +452,7 @@
 				<linkFlags>
 						<li>Wall</li>
 						<li>Rock</li>
-						<li>Custom2</li> <!-- Graphics depend on link type, should always be outside floor level -->
+						<li>Custom2</li> <!-- Upper -->
 				</linkFlags>
 			</asymmetricLink>
 			<!--<shadowData></shadowData> is there a way to cast them under invis?? -->
@@ -474,9 +471,9 @@
 		<selectable>true</selectable>
 		<neverMultiSelect>false</neverMultiSelect>
 		<placingDraggableDimensions>2</placingDraggableDimensions>
-		<altitudeLayer>Floor</altitudeLayer>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
-			<li>Floor</li>
+			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<passability>PassThroughOnly</passability> <!-- should apply to edges only, need graphics to reflect build intent -->
 		<pathCostIgnoreRepeat>false</pathCostIgnoreRepeat>
