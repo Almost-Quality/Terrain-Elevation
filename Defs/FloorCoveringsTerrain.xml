@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-<!--		=============== FloorCoverings ============ 				-->
-
 	<ThingDef Name="BuildingTerrainCoveringBase" ParentName="BuildingBase" Abstract="True">
 	  <wipesPlants>false</wipesPlants>
 	  <statBases>
@@ -43,18 +41,17 @@
 		</statBases>
 	</ThingDef>
 			  
-<!--  ========= Medium Puzzle Top ======== -->			  
+<!--  ========= Platforms ======== -->			  
 			  
 	<ThingDef Name="Rockstep_Medium_Edge" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>Rockstep_Medium_Edge</defName>
-		<label>Medium Ledge</label>
-		<description>A stone bas relief of morbid imagery for decorating a floor.</description>
+		<label>Stack Edge</label>
+		<description>A pile of stones forming an elevated platform.</description>
 		<designationCategory>Floors</designationCategory>
 		<uiOrder>2056</uiOrder>
 		<placingDraggableDimensions>1</placingDraggableDimensions>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(3,3)</drawSize>
 			<drawOffsetSouth>(0,0.5,-0.25)</drawOffsetSouth>
 			<drawOffset>(0,0.5,-0.25)</drawOffset>
@@ -63,9 +60,9 @@
 			</linkFlags>
 			<texPath>Things/Building/StepCoverings/RockstepThreeEdge</texPath>
 		</graphicData>
-		<altitudeLayer>Floor</altitudeLayer>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
-			<li>Floor</li>
+			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<!--<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat> -->
 		<!--<pathCost>10</pathCost> 0,5,10..+3-->
@@ -83,25 +80,22 @@
 		</researchPrerequisites>
 	</ThingDef>
 	
-<!-- Puzzle Medium Height Front -->
-	
 	<ThingDef Name="Rockstep_Medium_Corner" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>Rockstep_Medium_Corner</defName>
-		<label>Medium Ledge Corners</label>
-		<description>A stone bas relief of morbid imagery for decorating a floor.</description>
+		<label>Stack Corner</label>
+		<description>A pile of stones forming an elevated platform.</description>
 		<designationCategory>Floors</designationCategory>
 		<uiOrder>2057</uiOrder>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(3,3)</drawSize>
 			<drawOffsetSouth>(0,0.5,-0.25)</drawOffsetSouth>
 			<drawOffset>(0,0.5,-0.25)</drawOffset>
 			<texPath>Things/Building/StepCoverings/RockstepThreeCorner</texPath>
 		</graphicData>
-		<altitudeLayer>Floor</altitudeLayer>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
-			<li>Floor</li>
+			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<building>
@@ -116,13 +110,11 @@
 		  <li>Stonecutting</li>
 		</researchPrerequisites>
 	</ThingDef>  
-	
-<!-- ====== Medium 1x1 Single ======= -->
 
 <ThingDef Name="Rockstep_Medium_Single" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>Rockstep_Medium_Single</defName>
-		<label>Rockstep Pillar</label>
-		<description>Something something elevated platforms</description>
+		<label>Stack Pillar</label>
+		<description>A pile of stones forming an elevated platform.</description>
 		<uiOrder>2058</uiOrder>
 		<placingDraggableDimensions>1</placingDraggableDimensions>
 		<statBases>
@@ -132,12 +124,11 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
 			<drawOffset>(0,0.5,-0.25)</drawOffset>
-			<shaderType>CutoutComplex</shaderType>
 			<texPath>Things/Building/StepCoverings/RockstepThreeSingle</texPath>
 		</graphicData>
-		<altitudeLayer>Floor</altitudeLayer>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
-			<li>Floor</li>
+			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<neverMultiSelect>false</neverMultiSelect>
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
@@ -146,8 +137,8 @@
 			<isFence>true</isFence>
 			<paintable>true</paintable>
 		</building>
-		<!--<stuffCategories><li>Stony</li></stuffCategories>-->
-		<costStuffCount>0</costStuffCount>
+		<stuffCategories><li>Stony</li></stuffCategories>
+		<costStuffCount>1</costStuffCount>
 		<researchPrerequisites>
 		  <li>Stonecutting</li>
 		</researchPrerequisites>
@@ -349,9 +340,9 @@
 		</uiIconPathsStuff>
 		<neverMultiSelect>false</neverMultiSelect>
 		<placingDraggableDimensions>2</placingDraggableDimensions>
-		<altitudeLayer>Floor</altitudeLayer>
+		<altitudeLayer>TerrainScatter</altitudeLayer>
 		<blocksAltitudes>
-			<li>Floor</li>
+			<li>TerrainScatter</li>
 		</blocksAltitudes>
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<thingClass>Building</thingClass>
@@ -411,6 +402,7 @@
 		<altitudeLayer>Floor</altitudeLayer>
 		<blocksAltitudes>
 			<li>Floor</li>
+			<li>TerrainScatter</li>
 		</blocksAltitudes>
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<thingClass>Building</thingClass>
@@ -439,7 +431,7 @@
 	<ThingDef Name="Rockstep_Slope_Linked" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>Rockstep_Slope_Linked</defName>
 		<label>Full Slope</label>
-		<description>Now Less Janky! Build on medium slopes or edges for double height terrain</description>
+		<description>Something Something Full Slopes</description>
 		<graphicData>
 			<texPath>Things/Building/Linked/Rockstep1</texPath>
 			<graphicClass>Graphic_Appearances</graphicClass>
@@ -471,9 +463,9 @@
 		<selectable>true</selectable>
 		<neverMultiSelect>false</neverMultiSelect>
 		<placingDraggableDimensions>2</placingDraggableDimensions>
-		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<altitudeLayer>Floor</altitudeLayer>
 		<blocksAltitudes>
-			<li>FloorEmplacement</li>
+			<li>Floor</li>
 		</blocksAltitudes>
 		<passability>PassThroughOnly</passability> <!-- should apply to edges only, need graphics to reflect build intent -->
 		<pathCostIgnoreRepeat>false</pathCostIgnoreRepeat>
