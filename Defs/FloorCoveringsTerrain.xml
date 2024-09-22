@@ -48,6 +48,7 @@
 		<defName>FullSlopeMetallic_Corner</defName>
 		<description>A sizable slope, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
 		<designationCategory>Floors</designationCategory>
+		<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
@@ -71,16 +72,81 @@
 		</researchPrerequisites>
 	</ThingDef>  
 	
-	<ThingDef Name="FullSlopePlanks_Corner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
+	<ThingDef Name="FullSlopeSteel_Corner" ParentName="FullSlopeMetallic_Corner">
+		<defName>FullSlopeSteel_Corner</defName>
+		<label>Steel slope</label>
+		<costList>
+			<Steel>3</Steel>
+		</costList>
+		<graphicData>
+			<color>(105,105,105)</color>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef Name="FullSlopePlasteel_Corner" ParentName="FullSlopeMetallic_Corner">
+		<defName>FullSlopePlasteel_Corner</defName>
+		<label>Plasteel slope</label>
+		<costList>
+			<Plasteel>3</Plasteel>
+		</costList>
+		<graphicData>
+			<color>(160,178,181)</color>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef Name="FullSlopeUranium_Corner" ParentName="FullSlopeMetallic_Corner">
+		<defName>FullSlopeUranium_Corner</defName>
+		<label>Uranium slope</label>
+		<costList>
+			<Uranium>3</Uranium>
+		</costList>
+		<graphicData>
+			<color>(100,100,100)</color>
+		</graphicData>
+	</ThingDef>
+	
+	<ThingDef Name="FullSlopeSilver_Corner" ParentName="FullSlopeMetallic_Corner">
+		<defName>FullSlopeSilver_Corner</defName>
+		<label>Silver slope</label>
+		<graphicData>
+			<color>(180,173,150)</color>
+		</graphicData>
+		<statBases>
+			<Beauty>5</Beauty>
+		</statBases>
+		<costList>
+			<Silver>50</Silver>
+		</costList>
+	</ThingDef>  	
+	
+	<ThingDef Name="FullSlopeGold_Corner" ParentName="FullSlopeMetallic_Corner">
+		<defName>FullSlopeGold_Corner</defName>
+		<label>Golden slope</label>
+		<graphicData>
+			<color>(255,235,122)</color>
+		</graphicData>
+		<statBases>
+			<Beauty>20</Beauty>
+		</statBases>
+		<costList>
+			<Gold>50</Gold>
+		</costList>
+	</ThingDef>  	
+	
+	
+	<ThingDef Name="FullSlopePlanks_Corner" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>FullSlopePlanks_Corner</defName>
+		<label>Wooden slope corner</label>
 		<description>A sizable slope, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
 		<designationCategory>Floors</designationCategory>
+		<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
 			<texPath>Things/Building/StepCoverings/FullSlopeCornerPlanks</texPath>
 			<drawOffset>(0,0.5,0)</drawOffset>
 			<drawOffsetSouth>(0,0.5,0)</drawOffsetSouth>
+			<color>(133,97,67)</color>
 		</graphicData>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
@@ -93,7 +159,10 @@
 			<isFence>true</isFence>
 			<paintable>true</paintable>
 		</building>
-	</ThingDef>  
+		<costList>
+			<WoodLog>3</WoodLog>
+		</costList>
+	</ThingDef>
 	
 	<ThingDef Name="FullSlopeStony_Corner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 		<defName>FullSlopeStony_Corner</defName>
@@ -188,6 +257,7 @@
 		<defName>PlatformEdge_Material</defName>
 		<label>Platform Edge</label>
 		<iconSource>Placed</iconSource>
+		<uiOrder>2082</uiOrder>
 	</DesignatorDropdownGroupDef>	  
 	
 	<ThingDef Name="PlatformMetallic_Edge" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
@@ -198,8 +268,8 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
 			<texPath>Things/Building/StepCoverings/PlatformEdgeMetallic</texPath>
-			<drawOffset>(0,0.5,0)</drawOffset>
-			<drawOffsetSouth>(0,0.5,0)</drawOffsetSouth>
+			<drawOffset>(0,0.5,-0.15)</drawOffset>
+			<drawOffsetSouth>(0,0.5,-0.15)</drawOffsetSouth>
 		</graphicData>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
@@ -215,17 +285,41 @@
 		<researchPrerequisites>
 		  <li>Smithing</li>
 		</researchPrerequisites>
-	</ThingDef>  
+	</ThingDef>
 	
 	<ThingDef Name="PlatformSteel_Edge" ParentName="PlatformMetallic_Edge">
 		<defName>PlatformSteel_Edge</defName>
 		<label>Steel platform edge</label>
 		<designatorDropdown>PlatformEdge_Material</designatorDropdown>
 		<graphicData>
-			<color>(0.369, 0.369, 0.369)</color>
+			<color>(105,105,105)</color>
 		</graphicData>
 		<costList>
 			<Steel>1</Steel>
+		</costList>
+	</ThingDef>  	
+	
+	<ThingDef Name="PlatformPlasteel_Edge" ParentName="PlatformMetallic_Edge">
+		<defName>PlatformPlasteel_Edge</defName>
+		<label>Plasteel platform edge</label>
+		<designatorDropdown>PlatformEdge_Material</designatorDropdown>
+		<graphicData>
+			<color>(160,178,181)</color>
+		</graphicData>
+		<costList>
+			<Plasteel>1</Plasteel>
+		</costList>
+	</ThingDef>  	
+	
+	<ThingDef Name="PlatformUranium_Edge" ParentName="PlatformMetallic_Edge">
+		<defName>PlatformUranium_Edge</defName>
+		<label>Uranium platform edge</label>
+		<designatorDropdown>PlatformEdge_Material</designatorDropdown>
+		<graphicData>
+			<color>(100,100,100)</color>
+		</graphicData>
+		<costList>
+			<Uranium>1</Uranium>
 		</costList>
 	</ThingDef>  	
 	
@@ -234,7 +328,7 @@
 		<label>Silver platform edge</label>
 		<designatorDropdown>PlatformEdge_Material</designatorDropdown>
 		<graphicData>
-			<color>(0.45, 0.45, 0.45)</color>
+			<color>(180,173,150)</color>
 		</graphicData>
 		<statBases>
 			<Beauty>5</Beauty>
@@ -249,7 +343,7 @@
 		<label>Golden platform edge</label>
 		<designatorDropdown>PlatformEdge_Material</designatorDropdown>
 		<graphicData>
-			<color>(0.65, 0.65, 0.35)</color>
+			<color>(255,235,122)</color>
 		</graphicData>
 		<statBases>
 			<Beauty>20</Beauty>
@@ -302,6 +396,7 @@
 		<defName>PlatformCorner_Material</defName>
 		<label>Platform Corner</label>
 		<iconSource>Placed</iconSource>
+		<uiOrder>2083</uiOrder>
 	</DesignatorDropdownGroupDef>
 	
 	<ThingDef Name="PlatformMetallic_Corner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
@@ -312,8 +407,8 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
 			<texPath>Things/Building/StepCoverings/PlatformCornerMetallic</texPath>
-			<drawOffset>(0,0.5,0)</drawOffset>
-			<drawOffsetSouth>(0,0.5,0)</drawOffsetSouth>
+			<drawOffset>(0,0.5,-0.15)</drawOffset>
+			<drawOffsetSouth>(0,0.5,-0.15)</drawOffsetSouth>
 		</graphicData>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
@@ -331,26 +426,48 @@
 		</researchPrerequisites>
 	</ThingDef>  
 	
-	
 	<ThingDef Name="PlatformSteel_Corner" ParentName="PlatformMetallic_Corner">
 		<defName>PlatformSteel_Corner</defName>
 		<label>Steel platform corner</label>
 		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
 		<graphicData>
-			<color>(0.369, 0.369, 0.369)</color>
+			<color>(105,105,105)</color>
 		</graphicData>
 		<costList>
 			<Steel>1</Steel>
 		</costList>
 	</ThingDef>  	
 	
-		
+	<ThingDef Name="PlatformPlasteel_Corner" ParentName="PlatformMetallic_Corner">
+		<defName>PlatformPlasteel_Corner</defName>
+		<label>Plasteel platform corner</label>
+		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
+		<graphicData>
+			<color>(160,178,181)</color>
+		</graphicData>
+		<costList>
+			<Plasteel>1</Plasteel>
+		</costList>
+	</ThingDef>  	
+	
+	<ThingDef Name="PlatformUranium_Corner" ParentName="PlatformMetallic_Corner">
+		<defName>PlatformUranium_Corner</defName>
+		<label>Uranium platform corner</label>
+		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
+		<graphicData>
+			<color>(100,100,100)</color>
+		</graphicData>
+		<costList>
+			<Uranium>1</Uranium>
+		</costList>
+	</ThingDef>  	
+	
 	<ThingDef Name="PlatformSilver_Corner" ParentName="PlatformMetallic_Corner">
 		<defName>PlatformSilver_Corner</defName>
 		<label>Silver platform corner</label>
 		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
 		<graphicData>
-			<color>(0.45, 0.45, 0.45)</color>
+			<color>(180,173,150)</color>
 		</graphicData>
 		<statBases>
 			<Beauty>5</Beauty>
@@ -365,7 +482,7 @@
 		<label>Golden platform corner</label>
 		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
 		<graphicData>
-			<color>(0.65, 0.65, 0.35)</color>
+			<color>(255,235,122)</color>
 		</graphicData>
 		<statBases>
 			<Beauty>20</Beauty>
@@ -446,15 +563,142 @@
     <defName>FullSlopeEdge_Material</defName>
     <label>Full Slopes</label>
     <iconSource>Placed</iconSource>
+	<uiOrder>2080</uiOrder>
 </DesignatorDropdownGroupDef>
 
 <DesignatorDropdownGroupDef>
     <defName>FullSlopeCorner_Material</defName>
     <label>Full Slopes</label>
     <iconSource>Placed</iconSource>
+	<uiOrder>2081</uiOrder>
 </DesignatorDropdownGroupDef>
 
 <!-- Slope Edge -->
+
+<ThingDef Name="FullSlopePlanks_Edge" ParentName="BuildingTerrainCoveringSingleBase">
+		<defName>FullSlopePlanks_Edge</defName>
+		<label>Wooden slope</label>
+		<description>A sizable slope, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+		<designationCategory>Floors</designationCategory>
+		<designatorDropdown>FullSlopeEdge_Material</designatorDropdown>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<texPath>Things/Building/StepCoverings/FullSlopeEdgePlanks</texPath>
+			<drawOffset>(0,0.5,0)</drawOffset>
+			<drawOffsetSouth>(0,-0.5,0)</drawOffsetSouth>
+			<color>(133,97,67)</color>
+		</graphicData>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<blocksAltitudes>
+			<li>FloorEmplacement</li>
+		</blocksAltitudes>
+		<blockPlants>true</blockPlants>
+		<clearBuildingArea>true</clearBuildingArea>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<building>
+			<isFence>true</isFence>
+			<paintable>true</paintable>
+		</building>
+		<costList>
+			<WoodLog>3</WoodLog>
+		</costList>
+		<researchPrerequisites>
+		  <li>Stonecutting</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+<ThingDef Name="FullSlopeMetallic_Edge" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
+		<defName>FullSlopeMetallic_Edge</defName>
+		<description>A sizable slope, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+		<designationCategory>Floors</designationCategory>
+		<designatorDropdown>FullSlopeEdge_Material</designatorDropdown>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<texPath>Things/Building/StepCoverings/FullSlopeEdgeMetallic</texPath>
+			<drawOffset>(0,0.5,0)</drawOffset>
+			<drawOffsetSouth>(0,-0.5,0)</drawOffsetSouth>
+			<color>(133,97,67)</color>
+		</graphicData>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<blocksAltitudes>
+			<li>FloorEmplacement</li>
+		</blocksAltitudes>
+		<blockPlants>true</blockPlants>
+		<clearBuildingArea>true</clearBuildingArea>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<building>
+			<isFence>true</isFence>
+			<paintable>true</paintable>
+		</building>
+		<researchPrerequisites>
+		  <li>Smithing</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+<ThingDef Name="FullSlopeSteel_Edge" ParentName="FullSlopeMetallic_Edge">
+		<defName>FullSlopeSteel_Edge</defName>
+		<label>Steel slope</label>
+		<costList>
+			<Steel>3</Steel>
+		</costList>
+		<graphicData>
+			<color>(105,105,105)</color>
+		</graphicData>
+</ThingDef>
+
+<ThingDef Name="FullSlopePlasteel_Edge" ParentName="FullSlopeMetallic_Edge">
+		<defName>FullSlopePlasteel_Edge</defName>
+		<label>Plasteel slope</label>
+		<costList>
+			<Plasteel>3</Plasteel>
+		</costList>
+		<graphicData>
+			<color>(160,178,181)</color>
+		</graphicData>
+</ThingDef>
+
+<ThingDef Name="FullSlopeUranium_Edge" ParentName="FullSlopeMetallic_Edge">
+		<defName>FullSlopeUranium_Edge</defName>
+		<label>Uranium slope</label>
+		<costList>
+			<Uranium>3</Uranium>
+		</costList>
+		<graphicData>
+			<color>(100,100,100)</color>
+		</graphicData>
+</ThingDef>
+		
+<ThingDef Name="FullSlopeSilver_Edge" ParentName="FullSlopeMetallic_Edge">
+		<defName>FullSlopeSilver_Edge</defName>
+		<label>Silver slope</label>
+		<graphicData>
+			<color>(180,173,150)</color>
+		</graphicData>
+		<statBases>
+			<Beauty>5</Beauty>
+		</statBases>
+		<costList>
+			<Silver>50</Silver>
+		</costList>
+	</ThingDef>  	
+	
+	<ThingDef Name="FullSlopeGold_Edge" ParentName="FullSlopeMetallic_Edge">
+		<defName>FullSlopeGold_Edge</defName>
+		<label>Golden slope</label>
+		<graphicData>
+			<color>(255,235,122)</color>
+		</graphicData>
+		<statBases>
+			<Beauty>20</Beauty>
+		</statBases>
+		<costList>
+			<Gold>50</Gold>
+		</costList>
+	</ThingDef>  	
 
 <ThingDef Name="FullSlopeStony_Edge" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 		<defName>FullSlopeStony_Edge</defName>
