@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<ThingDef Name="BuildingTerrainCoveringBase" ParentName="BuildingBase" Abstract="True">
-	  <wipesPlants>false</wipesPlants>
-	  <statBases>
+	<ThingDef Name="BuildingTerrainCoveringBase" ParentName="BuildingNaturalBase" Abstract="True">
+	<thingClass>Building</thingClass>
+	<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+	<repairEffect>Repair</repairEffect>
+	<wipesPlants>false</wipesPlants>
+	<statBases>
 			<MaxHitPoints>300</MaxHitPoints>
 			<Beauty>0</Beauty>
 			<WorkToBuild>110</WorkToBuild>
 			<Mass>100</Mass>
 			<Flammability>0</Flammability>
-	  </statBases>	  
-	  <canGenerateDefaultDesignator>true</canGenerateDefaultDesignator>
-	  <designationCategory>Floors</designationCategory>
-	  <selectable>true</selectable>
-	  <neverMultiSelect>true</neverMultiSelect>
-	  <uiIconScale>0.75</uiIconScale>
-	  <passability>Standable</passability>
-	  <useHitPoints>true</useHitPoints>
-	  <defaultPlacingRot>South</defaultPlacingRot>
-	  <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-	  <resourcesFractionWhenDeconstructed>0.33</resourcesFractionWhenDeconstructed>
-	  <tradeability>None</tradeability>
-	  <destroyOnDrop>true</destroyOnDrop>
-	  <castEdgeShadows>false</castEdgeShadows>
-	  <blockLight>false</blockLight>
-	  <fillPercent>0</fillPercent>
-	  <building>
-			<alwaysDeconstructible>true</alwaysDeconstructible>
-			<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
-			<ai_neverTrashThis>true</ai_neverTrashThis>
-			<paintable>true</paintable>
-			<isEdifice>false</isEdifice>
-	  </building>
+	</statBases>
+	<canGenerateDefaultDesignator>true</canGenerateDefaultDesignator>
+	<designationCategory>Floors</designationCategory>
+	<selectable>true</selectable>
+	<neverMultiSelect>false</neverMultiSelect>
+	<uiIconScale>0.75</uiIconScale>
+	<passability>Standable</passability>
+	<useHitPoints>true</useHitPoints>
+	<defaultPlacingRot>South</defaultPlacingRot>
+	<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+	<resourcesFractionWhenDeconstructed>0.33</resourcesFractionWhenDeconstructed>
+	<tradeability>None</tradeability>
+	<destroyOnDrop>true</destroyOnDrop>
+	<castEdgeShadows>false</castEdgeShadows>
+	<blockLight>false</blockLight>
+	<fillPercent>0</fillPercent>
+	<building>
+		<alwaysDeconstructible>true</alwaysDeconstructible>
+		<ai_neverTrashThis>true</ai_neverTrashThis>
+		<paintable>true</paintable>
+		<isEdifice>false</isEdifice>
+	</building>
 	</ThingDef>
 
 	<ThingDef Name="BuildingTerrainCoveringSingleBase" ParentName="BuildingTerrainCoveringBase" Abstract="True">
@@ -45,15 +47,21 @@
 <!-- Slope Corners -->
 
 <DesignatorDropdownGroupDef>
-    <defName>FullSlopeCorner_Material</defName>
-    <label>Full Slopes</label>
-    <iconSource>Placed</iconSource>
+	<defName>FullSlopeCorner_Material</defName>
+	<label>Full Slopes</label>
+	<!--iconSource>Placed</iconSource-->
 </DesignatorDropdownGroupDef>
 	
 <DesignatorDropdownGroupDef>
-    <defName>FullSlopeEdge_Material</defName>
-    <label>Full Slopes</label>
-    <iconSource>Placed</iconSource>
+	<defName>FullSlopeEdge_Material</defName>
+	<label>Full Slopes</label>
+	<!--iconSource>Placed</iconSource-->
+</DesignatorDropdownGroupDef>
+
+<DesignatorDropdownGroupDef>
+	<defName>FullSlopeInsideCorner_Material</defName>
+	<label>Full Slopes</label>
+	<!--iconSource>Placed</iconSource-->
 </DesignatorDropdownGroupDef>
 
 <ThingDef Name="FullSlopePlanks_Corner" ParentName="BuildingTerrainCoveringSingleBase">
@@ -76,9 +84,9 @@
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<costList>
@@ -104,9 +112,9 @@
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -131,9 +139,9 @@
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -285,12 +293,12 @@
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<statBases>
 			<Flammability>20</Flammability>
 		</statBases>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<costList>
@@ -321,9 +329,9 @@
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -361,9 +369,9 @@
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -492,13 +500,127 @@
 		<costList>
 			<Gold>30</Gold>
 		</costList>
-	</ThingDef>  	
+	</ThingDef>
 
+<!-- inside corner prototype-->
+
+	<ThingDef Name="FullSlopePlanks_InsideCorner" ParentName="BuildingTerrainCoveringSingleBase">
+		<defName>FullSlopePlanks_InsideCorner</defName>
+		<label>Wooden platform</label>
+		<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+		<designationCategory>Floors</designationCategory>
+		<designatorDropdown>FullSlopeInsideCorner_Material</designatorDropdown>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<texPath>Things/Building/StepCoverings/FullSlopeInsidePlanks</texPath>
+			<drawOffset>(0,-0.8,0)</drawOffset>
+			<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
+			<color>(133,97,67)</color>
+		</graphicData>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<blocksAltitudes>
+			<li>FloorEmplacement</li>
+		</blocksAltitudes>
+		<blockPlants>true</blockPlants>
+		<clearBuildingArea>true</clearBuildingArea>
+		
+		<building>
+			<isFence>false</isFence>
+			<paintable>true</paintable>
+		</building>
+		<costList>
+			<WoodLog>3</WoodLog>
+		</costList>
+</ThingDef>
+
+<ThingDef Name="FullSlopeMetallic_InsideCorner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
+		<defName>FullSlopeMetallic_InsideCorner</defName>
+		<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+		<designationCategory>Floors</designationCategory>
+		<designatorDropdown>FullSlopeInsideCorner_Material</designatorDropdown>
+		<!--placingDraggableDimensions>1</placingDraggableDimensions-->
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<texPath>Things/Building/StepCoverings/FullSlopeInsideMetallic</texPath>
+			<drawOffset>(0,-0.8,0)</drawOffset>
+			<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
+			<!--color>(133,97,67)</color-->
+		</graphicData>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<blocksAltitudes>
+			<li>FloorEmplacement</li>
+		</blocksAltitudes>
+		<blockPlants>true</blockPlants>
+		<clearBuildingArea>true</clearBuildingArea>
+		
+		<building>
+			<isFence>false</isFence>
+			<paintable>true</paintable>
+		</building>
+		<researchPrerequisites>
+		  <li>Smithing</li>
+		</researchPrerequisites>
+</ThingDef>
 	
+	<ThingDef Name="FullSlopeSteel_InsideCorner" ParentName="FullSlopeMetallic_InsideCorner">
+		<defName>FullSlopeSteel_InsideCorner</defName>
+		<label>Steel platform</label>
+		<costList>
+			<Steel>3</Steel>
+		</costList>
+		<graphicData>
+			<color>(105,105,105)</color>
+		</graphicData>
+	</ThingDef>
+
+<ThingDef Name="FullSlopeStony_InsideCorner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
+		<defName>FullSlopeStony_InsideCorner</defName>
+		<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+		<designationCategory>Floors</designationCategory>
+		<designatorDropdown>FullSlopeInsideCorner_Material</designatorDropdown>
+		<!--placingDraggableDimensions></placingDraggableDimensions-->
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<texPath>Things/Building/StepCoverings/FullSlopeInsideStony</texPath>
+			<drawOffset>(0,-0.8,0)</drawOffset>
+			<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
+		</graphicData>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<blocksAltitudes>
+			<li>FloorEmplacement</li>
+		</blocksAltitudes>
+		<blockPlants>true</blockPlants>
+		<clearBuildingArea>true</clearBuildingArea>
+		
+		<building>
+			<isFence>false</isFence>
+			<paintable>true</paintable>
+		</building>
+		<researchPrerequisites>
+		  <li>Stonecutting</li>
+		</researchPrerequisites>
+</ThingDef>
+	
+	<ThingDef Name="FullSlopeSandstone_InsideCorner" ParentName="FullSlopeStony_InsideCorner">
+		<defName>FullSlopeSandstone_InsideCorner</defName>
+		<label>Sandstone platform</label>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<color>(126,104,94)</color>
+		</graphicData>
+		<costList>
+			<BlocksSandstone>3</BlocksSandstone>
+		</costList>
+	</ThingDef>
+
 	<DesignatorDropdownGroupDef>
 		<defName>PlatformSingle_Material</defName>
 		<label>Platform Pillar</label>
-		<iconSource>Placed</iconSource>
+		<!--iconSource>Placed</iconSource-->
 	</DesignatorDropdownGroupDef>	  	
 	
 	<ThingDef Name="Rockstep_Medium_Single" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True"> <!-- Potentially Depreciated, utility in generations?-->
@@ -521,11 +643,11 @@
 		<statBases>
 			<WorkToBuild>5</WorkToBuild>
 		</statBases>
-		<neverMultiSelect>false</neverMultiSelect>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
+		
 		<designationCategory>Floors</designationCategory>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -599,7 +721,7 @@
 	<DesignatorDropdownGroupDef>
 		<defName>PlatformCorner_Material</defName>
 		<label>Platform Corner</label>
-		<iconSource>Placed</iconSource>
+		<!--iconSource>Placed</iconSource-->
 	</DesignatorDropdownGroupDef>
 	
 	<ThingDef Name="PlatformPlanks_Corner" ParentName="BuildingTerrainCoveringSingleBase">
@@ -623,9 +745,9 @@
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<costList>
@@ -650,9 +772,9 @@
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -690,9 +812,9 @@
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -819,7 +941,7 @@
 	<DesignatorDropdownGroupDef>
 		<defName>PlatformEdge_Material</defName>
 		<label>Platform Edge</label>
-		<iconSource>Placed</iconSource>
+		<!--iconSource>Placed</iconSource-->
 	</DesignatorDropdownGroupDef>
 
 <ThingDef Name="PlatformPlanks_Edge" ParentName="BuildingTerrainCoveringSingleBase">
@@ -844,9 +966,9 @@
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<costList>
@@ -872,9 +994,9 @@
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -914,16 +1036,16 @@
 		</blocksAltitudes>
 		<!--<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat> -->
 		<!--<pathCost>10</pathCost> 0,5,10..+3-->
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
 		  <li>Stonecutting</li>
 		</researchPrerequisites>
 </ThingDef>
-	
+
 	<ThingDef Name="PlatformSandstone_Edge" ParentName="Rockstep_Medium_Edge">
 		<defName>PlatformSandstone_Edge</defName>
 		<label>Sandstone ledge</label>
@@ -935,7 +1057,7 @@
 			<BlocksSandstone>3</BlocksSandstone>
 		</costList>
 	</ThingDef>
-	
+
 	<ThingDef Name="PlatformGranite_Edge" ParentName="Rockstep_Medium_Edge">
 		<defName>PlatformGranite_Edge</defName>
 		<label>Granite ledge</label>
@@ -959,7 +1081,7 @@
 			<BlocksLimestone>3</BlocksLimestone>
 		</costList>
 	</ThingDef>
-	
+
 	<ThingDef Name="PlatformSlate_Edge" ParentName="Rockstep_Medium_Edge">
 		<defName>PlatformSlate_Edge</defName>
 		<label>Slate ledge</label>
@@ -971,7 +1093,7 @@
 			<BlocksSlate>3</BlocksSlate>
 		</costList>
 	</ThingDef>
-	
+
 	<ThingDef Name="PlatformMarble_Edge" ParentName="Rockstep_Medium_Edge">
 		<defName>PlatformMarble_Edge</defName>
 		<label>Marble ledge</label>
@@ -983,7 +1105,7 @@
 			<BlocksMarble>3</BlocksMarble>
 		</costList>
 	</ThingDef>
-	
+
 	<ThingDef Name="PlatformSilver_Edge" ParentName="PlatformMetallic_Edge">
 		<defName>PlatformSilver_Edge</defName>
 		<label>Silver ledge</label>
@@ -1010,7 +1132,7 @@
 			<Uranium>3</Uranium>
 		</costList>
 	</ThingDef>  	
-	
+
 	<ThingDef Name="PlatformPlasteel_Edge" ParentName="PlatformMetallic_Edge">
 		<defName>PlatformPlasteel_Edge</defName>
 		<label>Plasteel ledge</label>
@@ -1021,8 +1143,8 @@
 		<costList>
 			<Plasteel>3</Plasteel>
 		</costList>
-	</ThingDef>  	
-	
+	</ThingDef>
+
 	<ThingDef Name="PlatformGold_Edge" ParentName="PlatformMetallic_Edge">
 		<defName>PlatformGold_Edge</defName>
 		<label>Golden ledge</label>
@@ -1036,8 +1158,8 @@
 		<costList>
 			<Gold>30</Gold>
 		</costList>
-	</ThingDef>  	
-	
+	</ThingDef>
+
 <!-- ========== 1x1 Shader ========= -->
 
 <DesignatorDropdownGroupDef>
@@ -1057,9 +1179,9 @@
 			<WorkToBuild>0</WorkToBuild>
 			<Beauty>0</Beauty> <!-- No free beauty, come back when it costs work / materials -->
 		</statBases>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<selectable>false</selectable>
-		<neverMultiSelect>true</neverMultiSelect>
+		
+		<selectable>false</selectable> <!-- Overlaps stockpiles, growing zones! -->
+		
 		<useHitPoints>false</useHitPoints>
 		<designationCategory>Floors</designationCategory>
 		<altitudeLayer>FloorCoverings</altitudeLayer>
@@ -1087,7 +1209,7 @@
 			<shaderType>Transparent</shaderType>
 			<texPath>Things/Building/StepCoverings/RockstepThreeSingleShader</texPath>
 		</graphicData>
-		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		
 </ThingDef>  
 
 <!-- ============== Neither of these works as intended, save for generation or terrain changes?? =============================== -->	
@@ -1170,9 +1292,9 @@
 		<!--</graphicData>-->
 		<!--<passability>Standable</passability>-->
 		
-		<!--<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>-->
+		<!--<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>-->
 		<!--<building>-->
-			<!--<isFence>true</isFence>-->
+			<!--<isFence>false</isFence>-->
 			<!--<paintable>true</paintable>-->
 		<!--</building>-->
 		<!--<stuffCategories>-->
@@ -1185,7 +1307,7 @@
 	<!--</ThingDef>  -->
  
  
- <!-- ========= Medium (Linked Graphics Variant) (100% transparency, TODO make fill shader) ================= -->
+ <!-- ========= Medium (Linked Graphics Variant) (100% transparency) ================= -->
  
 	<ThingDef Name="Rockstep_Lower_Linked" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>Rockstep_Short_Linked</defName>
@@ -1220,20 +1342,21 @@
 			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
 		  </li>
 		</uiIconPathsStuff>
-		<neverMultiSelect>false</neverMultiSelect>
+		<!--<selectable></selectable> undecided, TRUE problems with building and selecting over furniture FALSE weird deconstruction order, fix elsewhere?-->
+		
 		<placingDraggableDimensions>2</placingDraggableDimensions>
 		<altitudeLayer>TerrainScatter</altitudeLayer>
 		<blocksAltitudes>
 			<li>TerrainScatter</li>
 		</blocksAltitudes>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<thingClass>Building</thingClass>
 		<designationCategory>Floors</designationCategory>
 		<clearBuildingArea>true</clearBuildingArea>
 		<castEdgeShadows>false</castEdgeShadows>
 		<fillPercent>0</fillPercent>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<isInert>true</isInert>
 			<paintable>true</paintable>
 		</building>
@@ -1281,94 +1404,28 @@
 			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
 		  </li>
 		</uiIconPathsStuff>
-		<neverMultiSelect>false</neverMultiSelect>
+		
+		
 		<placingDraggableDimensions>2</placingDraggableDimensions>
 		<altitudeLayer>TerrainScatter</altitudeLayer>
 		<blocksAltitudes>
 			<li>Floor</li>
 			<li>TerrainScatter</li>
 		</blocksAltitudes>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<thingClass>Building</thingClass>
 		<designationCategory>Floors</designationCategory>
 		<clearBuildingArea>true</clearBuildingArea>
 		<castEdgeShadows>false</castEdgeShadows>
 		<fillPercent>0</fillPercent>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<isInert>true</isInert>
 			<paintable>true</paintable>
 		</building>
 		<stuffCategories>
 			<li>Stony</li>
 			<li>Metallic</li>
-			<li>Woody</li>
-		</stuffCategories>
-		<costStuffCount>1</costStuffCount>
-		<researchPrerequisites>
-		  <li>Stonecutting</li>
-		</researchPrerequisites>
-	</ThingDef>	
-	
-	<!-- ================== Double Height, Under Slope, Linked =================== --> 	
-					<!-- Depreciated - Replaced -->
-	<ThingDef Name="Rockstep_Slope_Linked" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
-		<defName>Rockstep_Slope_Linked</defName>
-		<label>full platform</label>
-		<description>A sizable slope, forming the edge of a section of rock or earth raising the ground.</description>
-		<graphicData>
-			<texPath>Things/Building/Linked/Rockstep1</texPath>
-			<graphicClass>Graphic_Appearances</graphicClass>
-			<color>(230,230,230)</color>
-			<linkType>Asymmetric</linkType>
-			<linkFlags>
-				<li>Custom3</li>
-			</linkFlags>
-			<asymmetricLink>
-				<linkFlags>
-						<li>Wall</li>
-						<li>Rock</li>
-						<li>Custom2</li> <!-- Upper -->
-				</linkFlags>
-			</asymmetricLink>
-			<!--<shadowData></shadowData> is there a way to cast them under invis?? -->
-		</graphicData>
-		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
-		<uiIconPathsStuff>
-		  <li>
-			<appearance>Bricks</appearance>
-			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
-		  </li>
-		  <li>
-			<appearance>Planks</appearance>
-			<iconPath>Things/Building/Linked/WallPlanks_MenuIcon</iconPath>
-		  </li>
-		</uiIconPathsStuff>
-		<selectable>true</selectable>
-		<neverMultiSelect>false</neverMultiSelect>
-		<placingDraggableDimensions>2</placingDraggableDimensions>
-		<altitudeLayer>Floor</altitudeLayer>
-		<blocksAltitudes>
-			<li>Floor</li>
-		</blocksAltitudes>
-		<!-- <passability>PassThroughOnly</passability> not for decorative version -->
-		<pathCostIgnoreRepeat>false</pathCostIgnoreRepeat>
-		<pathCost>10</pathCost> <!--0,5,10..+3-->
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-		<thingClass>Building</thingClass>
-		<!--<designationCategory>None</designationCategory> Replaced by single tile variant-->
-		<clearBuildingArea>True</clearBuildingArea>
-		<castEdgeShadows>true</castEdgeShadows>
-		<fillPercent>0</fillPercent>
-		<blockPlants>true</blockPlants>
-		<building>
-			<isFence>true</isFence>
-			<isInert>true</isInert>
-			<paintable>true</paintable>
-		</building>
-		<stuffCategories>
-			<li>Metallic</li>
-			<li>Stony</li>
 			<li>Woody</li>
 		</stuffCategories>
 		<costStuffCount>1</costStuffCount>
