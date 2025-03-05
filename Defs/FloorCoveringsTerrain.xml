@@ -1184,9 +1184,10 @@
 		
 		<useHitPoints>false</useHitPoints>
 		<designationCategory>Floors</designationCategory>
-		<altitudeLayer>FloorCoverings</altitudeLayer>
+		<altitudeLayer>Terrain</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorCoverings</li>
+			<li>Terrain</li>
 		</blocksAltitudes>
 		<building>
 			<canPlaceOverWall>true</canPlaceOverWall>
@@ -1203,14 +1204,31 @@
 <ThingDef Name="Rockstep_Medium_Shader" ParentName="Rockstep_Light_Shader" Abstract="True">
 		<defName>Rockstep_Medium_Shader</defName>
 		<graphicData>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,3)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass> <!--last single-->
+			<!--drawSize>(3,3)</drawSize-->
 			<drawOffset>(0,-1,0)</drawOffset>
 			<shaderType>Transparent</shaderType>
-			<texPath>Things/Building/StepCoverings/RockstepThreeSingleShader</texPath>
+			<shaderParameters>
+				<_maxAlpha>0.1</_maxAlpha>
+				<_minAlpha>0.1</_minAlpha>
+			</shaderParameters>
+			<!--<texpath>Things/Building/StepCoverings/RockstepThreeSingleShader-->
+			<!--new from here--><linkType>Asymmetric</linkType>
+			<linkFlags>
+				<li>Custom4</li>
+			</linkFlags>
+			<asymmetricLink>
+				<linkFlags>
+					<li>Wall</li>
+					<li>Rock</li>
+					<li>Fences</li>
+					<li>MapEdge</li>
+					<li>Sandbags</li>
+					<li>Barricades</li>
+				</linkFlags>
+			</asymmetricLink>
 		</graphicData>
-		
-</ThingDef>  
+</ThingDef>
 
 <!-- ============== Neither of these works as intended, save for generation or terrain changes?? =============================== -->	
 	<!--<ThingDef ParentName="Rockstep_Light_Shader">--> <!-- Level 0 -->
@@ -1242,37 +1260,44 @@
 <ThingDef ParentName="Rockstep_Medium_Shader">
 	<defName>Rockstep_ShaderB</defName>
 	<label>Low height</label>
+	<uiIconPath>Things/Building/Linked/rockstepshaderlowAtlas</uiIconPath>
 	<description>A short section of rock or earth raising the ground.</description>
 	<graphicData>
-		<color>(160,160,160)</color>
+		<texPath>Things/Building/Linked/rockstepshaderlowAtlas</texPath> <!--colors included-->
 	</graphicData>
 </ThingDef>
   
 <ThingDef ParentName="Rockstep_Medium_Shader">
 	<defName>Rockstep_ShaderC</defName>
 	<label>Elevated height</label>
+	<uiIconPath>Things/Building/Linked/rockstepshaderelevatedAtlas</uiIconPath>
 	<description>A somewhat elevated section of rock or earth raising the ground.</description>
 	<graphicData>
-		<color>(200,200,200)</color>
+		<texPath>Things/Building/Linked/rockstepshaderelevatedAtlas</texPath>
+		<!--color>(200,200,200)</color-->
 	</graphicData>
 </ThingDef>
   
   
 <ThingDef ParentName="Rockstep_Medium_Shader">
 	<defName>Rockstep_ShaderD</defName>
+	<uiIconPath>Things/Building/Linked/rockstepshaderfullAtlas</uiIconPath>
 	<label>Full height</label>
 	<description>A significantly elevated section of rock or earth raising the ground.</description>
 	<graphicData>
-		<color>(240,240,240)</color>
+		<texPath>Things/Building/Linked/rockstepshaderfullAtlas</texPath>
+		<!--color>(240,240,240)</color-->
 	</graphicData>
 </ThingDef>
 
 <ThingDef ParentName="Rockstep_Medium_Shader">
 	<defName>Rockstep_ShaderF</defName>
 	<label>Full height outcrop</label>
+	<uiIconPath>Things/Building/Linked/rockstepshaderoutcropAtlas</uiIconPath>
 	<description>A prominently elevated section of rock raising the ground.</description>
 	<graphicData>
-		<color>(180,180,240)</color>
+		<texPath>Things/Building/Linked/rockstepshaderoutcropAtlas</texPath>
+		<!--color>(180,180,240)</color-->
 	</graphicData>
 	<terrainAffordanceNeeded>SmoothableStone</terrainAffordanceNeeded>
 </ThingDef>
