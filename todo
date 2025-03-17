@@ -1,20 +1,42 @@
-Short Ledges ok
- - Linkables
-Upper Ledges Added Done
+--New, # Estimated Order
 
-Slopes 2/3
-Metal Wood Done
-- Rocky
+#1
+Ledges
+--Corners and fitting Rework
+--Brick Ledges Variant (Smooth w/ Texture)
+--Random alternative graphics? (not for platforms)
 
-Platforms 
-- Rock cleanup remove
-- 16px Simple Wood
-- Corrugated
-Random alternative graphics? 
+Low height slopes
+  Linkables Done!
+  Upper Slopes Added Done!
+#5
+-- Cleanup art?
+#8
+-- Corrugated/Planks Variants/Gantry?
 
-Shader Tex ok
-- Edge Detection Rework? 
-Shader Define
-- Custom Removal Designator
+Platforms/Full Slopes
+#2
+--Internals Art Finalize South, SE, Create N NW
+--Internals Defs Offset fitting Alignment/Removal and Materials
+  Rock smooth Done
+  Simple Wood Done
+  Corrugated Done
+#6
+Bonus Versions?
+  -- Gantry Platforms
+  -- Full Rockstep Platforms
 
-Soil Version?
+#4
+Slopes, Ledges, Fullslopes Soil Variant?
+  Soil compatible shaders Done
+  Soil/Wood Low/Upper Slopes Done
+  --Soil Ledges
+  --Soil Full Slopes?
+
+Shaders
+  Shader Define (?)
+  Linked version/Edge Detection Done!
+#3
+-- Deep/Water Shader? 
+#7
+-- Custom Removal Designator
