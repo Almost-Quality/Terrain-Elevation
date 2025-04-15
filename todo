@@ -1,42 +1,43 @@
---New, # Estimated Order
+--Priority
 
-#1
-Ledges
---Corners and fitting Rework
---Brick Ledges Variant (Smooth w/ Texture)
---Random alternative graphics? (not for platforms)
+      #Ledges#
+Corners and fitting Rework Done
+Brick Ledges Variant (Smooth w/ Texture)
+Random alternative graphics? (not for platforms)
 
-Low height slopes
+
+   ##Low height slopes##
   Linkables Done!
   Upper Slopes Added Done!
-#5
--- Cleanup art?
-#8
--- Corrugated/Planks Variants/Gantry?
 
-Platforms/Full Slopes
-#2
---Internals Art Finalize South, SE, Create N NW
---Internals Defs Offset fitting Alignment/Removal and Materials
-  Rock smooth Done
-  Simple Wood Done
-  Corrugated Done
-#6
-Bonus Versions?
-  -- Gantry Platforms
-  -- Full Rockstep Platforms
 
-#4
-Slopes, Ledges, Fullslopes Soil Variant?
-  Soil compatible shaders Done
-  Soil/Wood Low/Upper Slopes Done
-  --Soil Ledges
-  --Soil Full Slopes?
+    ###Cleanup###
+Cleanup art? Done
+-- Cleanup UI Architect Order
 
-Shaders
+
+      ####Variants####
+Rock smooth Done
+Simple Wood Done
+Corrugated Done
+
+Soil?
+Gantry Frame?
+Full Rockstep?
+Concrete Block?
+Bricks?
+
+
+    #####Platforms/Full Slopes#####
+Internals Art Done
+Internals Defs Offset fitting Alignment/Removal Done
+-- Materials Re-sorting
+
+
+    ######Shaders######
   Shader Define (?)
+-- Remove outcrop blocking
+-- Better terrain affordances?
   Linked version/Edge Detection Done!
-#3
--- Deep/Water Shader? 
-#7
+  Deep/Water Shader? 
 -- Custom Removal Designator
