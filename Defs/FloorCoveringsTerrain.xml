@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<ThingDef Name="BuildingTerrainCoveringBase" ParentName="BuildingBase" Abstract="True">
-	  <wipesPlants>false</wipesPlants>
-	  <statBases>
+	<ThingDef Name="BuildingTerrainCoveringBase" ParentName="BuildingNaturalBase" Abstract="True">
+	<thingClass>Building</thingClass>
+	<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+	<repairEffect>Repair</repairEffect>
+	<wipesPlants>false</wipesPlants>
+	<statBases>
 			<MaxHitPoints>300</MaxHitPoints>
 			<Beauty>0</Beauty>
 			<WorkToBuild>110</WorkToBuild>
 			<Mass>100</Mass>
 			<Flammability>0</Flammability>
-	  </statBases>	  
-	  <canGenerateDefaultDesignator>true</canGenerateDefaultDesignator>
-	  <designationCategory>Floors</designationCategory>
-	  <selectable>true</selectable>
-	  <neverMultiSelect>true</neverMultiSelect>
-	  <uiIconScale>0.75</uiIconScale>
-	  <passability>Standable</passability>
-	  <useHitPoints>true</useHitPoints>
-	  <defaultPlacingRot>South</defaultPlacingRot>
-	  <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-	  <resourcesFractionWhenDeconstructed>0.33</resourcesFractionWhenDeconstructed>
-	  <tradeability>None</tradeability>
-	  <destroyOnDrop>true</destroyOnDrop>
-	  <castEdgeShadows>false</castEdgeShadows>
-	  <blockLight>false</blockLight>
-	  <fillPercent>0</fillPercent>
-	  <building>
-			<alwaysDeconstructible>true</alwaysDeconstructible>
-			<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
-			<ai_neverTrashThis>true</ai_neverTrashThis>
-			<paintable>true</paintable>
-			<isEdifice>false</isEdifice>
-	  </building>
+	</statBases>
+	<canGenerateDefaultDesignator>true</canGenerateDefaultDesignator>
+	<designationCategory>Floors</designationCategory>
+	<selectable>true</selectable>
+	<neverMultiSelect>false</neverMultiSelect>
+	<destroyOnDrop>true</destroyOnDrop>
+	<uiIconScale>0.9</uiIconScale>
+	<uiIconOffset>(0,-0.1)</uiIconOffset>
+	<passability>Standable</passability>
+	<useHitPoints>true</useHitPoints>
+	<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+	<resourcesFractionWhenDeconstructed>0.33</resourcesFractionWhenDeconstructed>
+	<tradeability>None</tradeability>
+	<castEdgeShadows>false</castEdgeShadows>
+	<blockLight>false</blockLight>
+	<fillPercent>0</fillPercent>
+	<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+	<building>
+		<alwaysDeconstructible>true</alwaysDeconstructible>
+		<ai_neverTrashThis>true</ai_neverTrashThis>
+		<expandHomeArea>false</expandHomeArea>
+		<paintable>true</paintable>
+		<isEdifice>false</isEdifice>
+		<isSittable>true</isSittable> <!--cute-->
+	</building>
 	</ThingDef>
 
 	<ThingDef Name="BuildingTerrainCoveringSingleBase" ParentName="BuildingTerrainCoveringBase" Abstract="True">
@@ -45,40 +50,48 @@
 <!-- Slope Corners -->
 
 <DesignatorDropdownGroupDef>
-    <defName>FullSlopeCorner_Material</defName>
-    <label>Full Slopes</label>
-    <iconSource>Placed</iconSource>
+	<defName>FullSlopeCorner_Material</defName>
+	<label>Full Slopes</label>
+	<!--iconSource>Placed</iconSource-->
 </DesignatorDropdownGroupDef>
 	
 <DesignatorDropdownGroupDef>
-    <defName>FullSlopeEdge_Material</defName>
-    <label>Full Slopes</label>
-    <iconSource>Placed</iconSource>
+	<defName>FullSlopeEdge_Material</defName>
+	<label>Full Slopes</label>
+	<!--iconSource>Placed</iconSource-->
 </DesignatorDropdownGroupDef>
+
+
+	<!--defName>FullSlopeInsideCorner_Material</defName-->
+	
+	
+
 
 <ThingDef Name="FullSlopePlanks_Corner" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>FullSlopePlanks_Corner</defName>
-		<label>Wooden platform</label>
-		<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+		<label>Wooden corner platform</label>
+		<description>A sizable length of piles, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
 		<designationCategory>Floors</designationCategory>
+		<uiIconOffset>(0,0)</uiIconOffset>
 		<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/FullSlopeCornerPlanks</texPath>
+			<texPath>Things/Building/StepCoverings/Planks/FullSlopeCornerPlanks</texPath>
 			<drawOffset>(0,-0.8,0)</drawOffset>
 			<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
 			<color>(133,97,67)</color>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<costList>
@@ -86,27 +99,66 @@
 		</costList>
 </ThingDef>
 
+
+<ThingDef Name="FullSlopePlanks_InsideCorner" ParentName="BuildingTerrainCoveringSingleBase">
+	<defName>FullSlopePlanks_InsideCorner</defName>
+	<label>Wooden inside corner platform</label>
+	<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+	<designationCategory>Floors</designationCategory>
+	<uiIconOffset>(0,0)</uiIconOffset>
+	<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
+	<graphicData>
+		<graphicClass>Graphic_Multi</graphicClass>
+		<drawSize>(3,3)</drawSize>
+		<texPath>Things/Building/StepCoverings/Planks/FullSlopeInsidePlanks</texPath>
+		<drawOffset>(0,-0.8,0)</drawOffset>
+		<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
+		<color>(133,97,67)</color>
+	</graphicData>
+	<rotatable>true</rotatable>
+	<defaultPlacingRot>South</defaultPlacingRot>
+	<altitudeLayer>FloorEmplacement</altitudeLayer>
+	<blocksAltitudes>
+		<li>FloorEmplacement</li>
+	</blocksAltitudes>
+	<blockPlants>true</blockPlants>
+	<clearBuildingArea>true</clearBuildingArea>
+	
+	<building>
+		<isFence>false</isFence>
+		<paintable>true</paintable>
+	</building>
+	<costList>
+		<WoodLog>3</WoodLog>
+	</costList>
+</ThingDef>
+
+
 <ThingDef Name="FullSlopeMetallic_Corner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 		<defName>FullSlopeMetallic_Corner</defName>
-		<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+		
+		<description>A sizable retaining wall, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
 		<designationCategory>Floors</designationCategory>
+		<uiIconOffset>(0,0)</uiIconOffset>
 		<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/FullSlopeCornerMetallic</texPath>
+			<texPath>Things/Building/StepCoverings/Metallic/FullSlopeCornerMetallic</texPath>
 			<drawOffset>(0,-0.8,0)</drawOffset>
 			<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -116,34 +168,102 @@
 
 <ThingDef Name="FullSlopeStony_Corner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 		<defName>FullSlopeStony_Corner</defName>
-		<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+		<description>A sizable rock facing, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
 		<designationCategory>Floors</designationCategory>
+		<uiIconOffset>(0,0)</uiIconOffset>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/FullSlopeCornerStony</texPath>
+			<texPath>Things/Building/StepCoverings/Stony/FullSlopeCornerStony</texPath>
 			<drawOffset>(0,-0.8,0)</drawOffset>
 			<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
 		  <li>Stonecutting</li>
 		</researchPrerequisites>
 </ThingDef>  
+<ThingDef Name="FullSlopeMetallic_InsideCorner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
+	<defName>FullSlopeMetallic_InsideCorner</defName>
+	<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+	<designationCategory>Floors</designationCategory>
+	<uiIconOffset>(0,0)</uiIconOffset>
+	<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
+	<!--placingDraggableDimensions>1</placingDraggableDimensions-->
+	<graphicData>
+		<graphicClass>Graphic_Multi</graphicClass>
+		<drawSize>(3,3)</drawSize>
+		<texPath>Things/Building/StepCoverings/Metallic/FullSlopeInsideMetallic</texPath>
+		<drawOffset>(0,-0.8,0)</drawOffset>
+		<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
+		<!--color>(133,97,67)</color-->
+	</graphicData>
+	<rotatable>true</rotatable>
+	<defaultPlacingRot>South</defaultPlacingRot>
+	<altitudeLayer>FloorEmplacement</altitudeLayer>
+	<blocksAltitudes>
+		<li>FloorEmplacement</li>
+	</blocksAltitudes>
+	<blockPlants>true</blockPlants>
+	<clearBuildingArea>true</clearBuildingArea>
 	
+	<building>
+		<isFence>false</isFence>
+		<paintable>true</paintable>
+	</building>
+	<researchPrerequisites>
+	  <li>Smithing</li>
+	</researchPrerequisites>
+</ThingDef>
+
+
+<ThingDef Name="FullSlopeStony_InsideCorner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
+		<defName>FullSlopeStony_InsideCorner</defName>
+		<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+		<designationCategory>Floors</designationCategory>
+		<uiIconOffset>(0,0)</uiIconOffset>
+		<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
+		<!--placingDraggableDimensions></placingDraggableDimensions-->
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<texPath>Things/Building/StepCoverings/Stony/FullSlopeInsideStony</texPath>
+			<drawOffset>(0,-0.8,0)</drawOffset>
+			<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<blocksAltitudes>
+			<li>FloorEmplacement</li>
+		</blocksAltitudes>
+		<blockPlants>true</blockPlants>
+		<clearBuildingArea>true</clearBuildingArea>
+		
+		<building>
+			<isFence>false</isFence>
+			<paintable>true</paintable>
+		</building>
+		<researchPrerequisites>
+		  <li>Stonecutting</li>
+		</researchPrerequisites>
+</ThingDef>
+
 	<ThingDef Name="FullSlopeSteel_Corner" ParentName="FullSlopeMetallic_Corner">
 		<defName>FullSlopeSteel_Corner</defName>
-		<label>Steel platform</label>
+		<label>Steel corner platform</label>
 		<costList>
 			<Steel>3</Steel>
 		</costList>
@@ -151,22 +271,44 @@
 			<color>(105,105,105)</color>
 		</graphicData>
 	</ThingDef>
-	
-	<ThingDef Name="FullSlopeSandstone_Corner" ParentName="FullSlopeStony_Corner">
-		<defName>FullSlopeSandstone_Corner</defName>
-		<label>Sandstone platform</label>
-		<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
-		<graphicData>
-			<color>(126,104,94)</color>
-		</graphicData>
-		<costList>
-			<BlocksSandstone>3</BlocksSandstone>
-		</costList>
-	</ThingDef>  
-	
+
+<ThingDef Name="FullSlopeSteel_InsideCorner" ParentName="FullSlopeMetallic_InsideCorner">
+	<defName>FullSlopeSteel_InsideCorner</defName>
+	<label>Steel inside corner platform</label>
+	<costList>
+		<Steel>3</Steel>
+	</costList>
+	<graphicData>
+		<color>(105,105,105)</color>
+	</graphicData>
+</ThingDef>
+
+<ThingDef Name="FullSlopeSandstone_Corner" ParentName="FullSlopeStony_Corner">
+	<defName>FullSlopeSandstone_Corner</defName>
+	<label>Sandstone corner platform</label>
+	<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
+	<graphicData>
+		<color>(126,104,94)</color>
+	</graphicData>
+	<costList>
+		<BlocksSandstone>3</BlocksSandstone>
+	</costList>
+</ThingDef>  
+
+<ThingDef Name="FullSlopeSandstone_InsideCorner" ParentName="FullSlopeStony_InsideCorner">
+	<defName>FullSlopeSandstone_InsideCorner</defName>
+	<label>Sandstone inside corner platform</label>
+	<graphicData>
+		<color>(126,104,94)</color>
+	</graphicData>
+	<costList>
+		<BlocksSandstone>3</BlocksSandstone>
+	</costList>
+</ThingDef>
+
 	<ThingDef Name="FullSlopeGranite_Corner" ParentName="FullSlopeStony_Corner">
 		<defName>FullSlopeGranite_Corner</defName>
-		<label>Granite platform</label>
+		<label>Granite corner platform</label>
 		<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
 		<graphicData>
 			<color>(105,95,97)</color>
@@ -175,10 +317,20 @@
 			<BlocksGranite>3</BlocksGranite>
 		</costList>
 	</ThingDef>  
-	
+	<ThingDef Name="FullSlopeGranite_InsideCorner" ParentName="FullSlopeStony_InsideCorner">
+		<defName>FullSlopeGranite_InsideCorner</defName>
+		<label>Granite inside corner platform</label>
+		<graphicData>
+			<color>(105,95,97)</color>
+		</graphicData>
+		<costList>
+			<BlocksGranite>3</BlocksGranite>
+		</costList>
+	</ThingDef>
+
 	<ThingDef Name="FullSlopeLimestone_Corner" ParentName="FullSlopeStony_Corner">
 		<defName>FullSlopeLimestone_Corner</defName>
-		<label>Limestone platform</label>
+		<label>Limestone corner platform</label>
 		<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
 		<graphicData>
 			<color>(158,153,135)</color>
@@ -187,10 +339,21 @@
 			<BlocksLimestone>3</BlocksLimestone>
 		</costList>
 	</ThingDef>  
-	
+
+	<ThingDef Name="FullSlopeLimestone_InsideCorner" ParentName="FullSlopeStony_InsideCorner">
+		<defName>FullSlopeLimestone_InsideCorner</defName>
+		<label>Limestone inside corner platform</label>
+		<graphicData>
+			<color>(158,153,135)</color>
+		</graphicData>
+		<costList>
+			<BlocksLimestone>3</BlocksLimestone>
+		</costList>
+	</ThingDef>
+
 	<ThingDef Name="FullSlopeSlate_Corner" ParentName="FullSlopeStony_Corner">
 		<defName>FullSlopeSlate_Corner</defName>
-		<label>Slate platform</label>
+		<label>Slate corner platform</label>
 		<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
 		<graphicData>
 			<color>(70,70,70)</color>
@@ -199,10 +362,21 @@
 			<BlocksSlate>3</BlocksSlate>
 		</costList>
 	</ThingDef>  
-	
+
+	<ThingDef Name="FullSlopeSlate_InsideCorner" ParentName="FullSlopeStony_InsideCorner">
+		<defName>FullSlopeSlate_InsideCorner</defName>
+		<label>Slate inside corner platform</label>
+		<graphicData>
+			<color>(70,70,70)</color>
+		</graphicData>
+		<costList>
+			<BlocksSlate>3</BlocksSlate>
+		</costList>
+	</ThingDef>
+
 	<ThingDef Name="FullSlopeMarble_Corner" ParentName="FullSlopeStony_Corner">
 		<defName>FullSlopeMarble_Corner</defName>
-		<label>Marble platform</label>
+		<label>Marble corner platform</label>
 		<designatorDropdown>FullSlopeCorner_Material</designatorDropdown>
 		<graphicData>
 			<color>(132,135,132)</color>
@@ -212,31 +386,23 @@
 		</costList>
 	</ThingDef>
 
-	<ThingDef Name="FullSlopePlasteel_Corner" ParentName="FullSlopeMetallic_Corner">
-		<defName>FullSlopePlasteel_Corner</defName>
-		<label>Plasteel platform</label>
-		<costList>
-			<Plasteel>3</Plasteel>
-		</costList>
+	<ThingDef Name="FullSlopeMarble_InsideCorner" ParentName="FullSlopeStony_InsideCorner">
+		<defName>FullSlopeMarble_InsideCorner</defName>
+		<label>Marble inside corner platform</label>
 		<graphicData>
-			<color>(160,178,181)</color>
+			<color>(132,135,132)</color>
 		</graphicData>
+		<statBases>
+			<Beauty>1</Beauty>
+		</statBases>
+		<costList>
+			<BlocksMarble>3</BlocksMarble>
+		</costList>
 	</ThingDef>
 
-	<ThingDef Name="FullSlopeUranium_Corner" ParentName="FullSlopeMetallic_Corner">
-		<defName>FullSlopeUranium_Corner</defName>
-		<label>Uranium platform</label>
-		<costList>
-			<Uranium>3</Uranium>
-		</costList>
-		<graphicData>
-			<color>(100,100,100)</color>
-		</graphicData>
-	</ThingDef>
-	
 	<ThingDef Name="FullSlopeSilver_Corner" ParentName="FullSlopeMetallic_Corner">
 		<defName>FullSlopeSilver_Corner</defName>
-		<label>Silver platform</label>
+		<label>Silver corner platform</label>
 		<graphicData>
 			<color>(180,173,150)</color>
 		</graphicData>
@@ -247,10 +413,70 @@
 			<Silver>30</Silver>
 		</costList>
 	</ThingDef>  	
-	
+
+	<ThingDef Name="FullSlopeSilver_InsideCorner" ParentName="FullSlopeMetallic_InsideCorner">
+		<defName>FullSlopeSilver_InsideCorner</defName>
+		<label>Silver inside corner platform</label>
+		<graphicData>
+			<color>(180,173,150)</color>
+		</graphicData>
+		<statBases>
+			<Beauty>5</Beauty>
+		</statBases>
+		<costList>
+			<Silver>30</Silver>
+		</costList>
+	</ThingDef>
+
+<!--insert jade here if preferred-->
+
+	<ThingDef Name="FullSlopeUranium_Corner" ParentName="FullSlopeMetallic_Corner">
+		<defName>FullSlopeUranium_Corner</defName>
+		<label>Uranium corner platform</label>
+		<costList>
+			<Uranium>3</Uranium>
+		</costList>
+		<graphicData>
+			<color>(100,100,100)</color>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef Name="FullSlopeUranium_InsideCorner" ParentName="FullSlopeMetallic_InsideCorner">
+		<defName>FullSlopeUranium_InsideCorner</defName>
+		<label>Uranium inside corner platform</label>
+		<costList>
+			<Uranium>3</Uranium>
+		</costList>
+		<graphicData>
+			<color>(100,100,100)</color>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef Name="FullSlopePlasteel_Corner" ParentName="FullSlopeMetallic_Corner">
+		<defName>FullSlopePlasteel_Corner</defName>
+		<label>Plasteel corner platform</label>
+		<costList>
+			<Plasteel>3</Plasteel>
+		</costList>
+		<graphicData>
+			<color>(160,178,181)</color>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef Name="FullSlopePlasteel_InsideCorner" ParentName="FullSlopeMetallic_InsideCorner">
+			<defName>FullSlopePlasteel_InsideCorner</defName>
+			<label>Plasteel inside corner platform</label>
+			<costList>
+				<Plasteel>3</Plasteel>
+			</costList>
+			<graphicData>
+				<color>(160,178,181)</color>
+			</graphicData>
+	</ThingDef>
+
 	<ThingDef Name="FullSlopeGold_Corner" ParentName="FullSlopeMetallic_Corner">
 		<defName>FullSlopeGold_Corner</defName>
-		<label>Golden platform</label>
+		<label>Golden corner platform</label>
 		<graphicData>
 			<color>(255,235,122)</color>
 		</graphicData>
@@ -260,37 +486,54 @@
 		<costList>
 			<Gold>30</Gold>
 		</costList>
-	</ThingDef>  	
+	</ThingDef>
+
+<ThingDef Name="FullSlopeGold_InsideCorner" ParentName="FullSlopeMetallic_InsideCorner">
+	<defName>FullSlopeGold_InsideCorner</defName>
+	<label>Golden inside corner platform</label>
+	<graphicData>
+		<color>(255,235,122)</color>
+	</graphicData>
+	<statBases>
+		<Beauty>20</Beauty>
+	</statBases>
+	<costList>
+		<Gold>30</Gold>
+	</costList>
+</ThingDef>
 
 <!-- Slope Edge -->
 
 <ThingDef Name="FullSlopePlanks_Edge" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>FullSlopePlanks_Edge</defName>
 		<label>Wooden platform</label>
-		<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+		<description>A sizable length of piles, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
 		<designationCategory>Floors</designationCategory>
+		<uiIconOffset>(0,0)</uiIconOffset>
 		<designatorDropdown>FullSlopeEdge_Material</designatorDropdown>
 		<placingDraggableDimensions>1</placingDraggableDimensions>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/FullSlopeEdgePlanks</texPath>
+			<texPath>Things/Building/StepCoverings/Planks/FullSlopeEdgePlanks</texPath>
 			<drawOffset>(0,-0.8,0)</drawOffset>
 			<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
 			<color>(133,97,67)</color>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<statBases>
 			<Flammability>20</Flammability>
 		</statBases>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<costList>
@@ -303,27 +546,30 @@
 
 <ThingDef Name="FullSlopeMetallic_Edge" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 		<defName>FullSlopeMetallic_Edge</defName>
-		<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
+		<description>A sizable retaining wall, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
 		<designationCategory>Floors</designationCategory>
+		<uiIconOffset>(0,0)</uiIconOffset>
 		<designatorDropdown>FullSlopeEdge_Material</designatorDropdown>
 		<placingDraggableDimensions>1</placingDraggableDimensions>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/FullSlopeEdgeMetallic</texPath>
+			<texPath>Things/Building/StepCoverings/Metallic/FullSlopeEdgeMetallic</texPath>
 			<drawOffset>(0,-0.8,0)</drawOffset>
 			<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
 			<color>(133,97,67)</color>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -331,7 +577,7 @@
 		</researchPrerequisites>
 </ThingDef>
 	
-	<ThingDef Name="FullSlopeSteel_Edge" ParentName="FullSlopeMetallic_Edge">
+<ThingDef Name="FullSlopeSteel_Edge" ParentName="FullSlopeMetallic_Edge">
 		<defName>FullSlopeSteel_Edge</defName>
 		<label>Steel platform</label>
 		<costList>
@@ -340,30 +586,33 @@
 		<graphicData>
 			<color>(105,105,105)</color>
 		</graphicData>
-	</ThingDef>
+</ThingDef>
 
 <ThingDef Name="FullSlopeStony_Edge" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 		<defName>FullSlopeStony_Edge</defName>
 		<description>A sizable platform, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over.</description>
 		<designationCategory>Floors</designationCategory>
 		<designatorDropdown>FullSlopeEdge_Material</designatorDropdown>
+		<uiIconOffset>(0,0)</uiIconOffset>
 		<placingDraggableDimensions>1</placingDraggableDimensions>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/FullSlopeEdgeStony</texPath>
+			<texPath>Things/Building/StepCoverings/Stony/FullSlopeEdgeStony</texPath>
 			<drawOffset>(0,-0.8,0)</drawOffset>
 			<drawOffsetSouth>(0,-0.8,0)</drawOffsetSouth>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -375,23 +624,17 @@
 		<defName>FullSlopeSandstone_Edge</defName>
 		<label>Sandstone platform</label>
 		<graphicData>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/FullSlopeEdgeStony</texPath>
 			<color>(126,104,94)</color>
 		</graphicData>
 		<costList>
 			<BlocksSandstone>3</BlocksSandstone>
 		</costList>
 	</ThingDef>
-	
+
 	<ThingDef Name="FullSlopeGranite_Edge" ParentName="FullSlopeStony_Edge">
 		<defName>FullSlopeGranite_Edge</defName>
 		<label>Granite platform</label>
 		<graphicData>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/FullSlopeEdgeStony</texPath>
 			<color>(105,95,97)</color>
 		</graphicData>
 		<costList>
@@ -403,9 +646,6 @@
 		<defName>FullSlopeLimestone_Edge</defName>
 		<label>Limestone platform</label>
 		<graphicData>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/FullSlopeEdgeStony</texPath>
 			<color>(158,153,135)</color>
 		</graphicData>
 		<costList>
@@ -417,9 +657,6 @@
 		<defName>FullSlopeSlate_Edge</defName>
 		<label>Slate platform</label>
 		<graphicData>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/FullSlopeEdgeStony</texPath>
 			<color>(70,70,70)</color>
 		</graphicData>
 		<costList>
@@ -431,9 +668,6 @@
 		<defName>FullSlopeMarble_Edge</defName>
 		<label>Marble platform</label>
 		<graphicData>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/FullSlopeEdgeStony</texPath>
 			<color>(132,135,132)</color>
 		</graphicData>
 		<statBases>
@@ -458,16 +692,7 @@
 		</costList>
 	</ThingDef>
 
-	<ThingDef Name="FullSlopePlasteel_Edge" ParentName="FullSlopeMetallic_Edge">
-			<defName>FullSlopePlasteel_Edge</defName>
-			<label>Plasteel platform</label>
-			<costList>
-				<Plasteel>3</Plasteel>
-			</costList>
-			<graphicData>
-				<color>(160,178,181)</color>
-			</graphicData>
-	</ThingDef>
+<!-- jade here if preferred-->
 
 	<ThingDef Name="FullSlopeUranium_Edge" ParentName="FullSlopeMetallic_Edge">
 		<defName>FullSlopeUranium_Edge</defName>
@@ -479,7 +704,18 @@
 			<color>(100,100,100)</color>
 		</graphicData>
 	</ThingDef>
-	
+
+	<ThingDef Name="FullSlopePlasteel_Edge" ParentName="FullSlopeMetallic_Edge">
+			<defName>FullSlopePlasteel_Edge</defName>
+			<label>Plasteel platform</label>
+			<costList>
+				<Plasteel>3</Plasteel>
+			</costList>
+			<graphicData>
+				<color>(160,178,181)</color>
+			</graphicData>
+	</ThingDef>
+
 	<ThingDef Name="FullSlopeGold_Edge" ParentName="FullSlopeMetallic_Edge">
 		<defName>FullSlopeGold_Edge</defName>
 		<label>Golden platform</label>
@@ -492,28 +728,27 @@
 		<costList>
 			<Gold>30</Gold>
 		</costList>
-	</ThingDef>  	
+	</ThingDef>
 
-	
+
 	<DesignatorDropdownGroupDef>
 		<defName>PlatformSingle_Material</defName>
 		<label>Platform Pillar</label>
-		<iconSource>Placed</iconSource>
 	</DesignatorDropdownGroupDef>	  	
 	
-	<ThingDef Name="Rockstep_Medium_Single" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True"> <!-- Potentially Depreciated, utility in generations?-->
+	<ThingDef Name="Rockstep_Medium_Single" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 		<defName>Rockstep_Medium_Single</defName>
 		<label>ledge pillar</label>
 		<description>A pillar of stones forming an elevated platform.</description>
-		<uiIconScale>0.55</uiIconScale>		
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<uiIconScale>0.65</uiIconScale>
+		<uiIconOffset>(0,-0.15)</uiIconOffset>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<drawOffset>(0,0,-0.38)</drawOffset>
-			<texPath>Things/Building/StepCoverings/RockstepThreeSingle</texPath>
+			<drawOffset>(0,0,0)</drawOffset>
+			<texPath>Things/Building/StepCoverings/Stony/RockstepThreeSingle</texPath>
 		</graphicData>
-		<defaultPlacingRot>South</defaultPlacingRot>
-		<rotatable>false</rotatable>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
@@ -521,11 +756,11 @@
 		<statBases>
 			<WorkToBuild>5</WorkToBuild>
 		</statBases>
-		<neverMultiSelect>false</neverMultiSelect>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>North</defaultPlacingRot> <!--textures flipped for compatibility-->
 		<designationCategory>Floors</designationCategory>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
@@ -533,9 +768,130 @@
 		</researchPrerequisites>
 	</ThingDef>
 	
+	<ThingDef Name="Rockstep_Medium_End" ParentName="Rockstep_Medium_Single" Abstract="True">
+		<defName>Rockstep_Medium_End</defName>
+		<graphicData>
+			<texPath>Things/Building/StepCoverings/Stony/RockstepPillar</texPath>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
+	</ThingDef>
+
+	<ThingDef Name="PlatformPlanks_Single" ParentName="BuildingTerrainCoveringSingleBase">
+	<defName>PlatformPlanks_Single</defName>
+	<label>Wooden pillar ledge</label>
+	<description>A wooden pillar forming an elevated platform.</description>
+	<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+	<uiIconScale>0.65</uiIconScale>
+	<uiIconOffset>(0,-0.15)</uiIconOffset>
+	<graphicData>
+		<graphicClass>Graphic_Multi</graphicClass>
+		<drawSize>(3,3)</drawSize>
+		<texPath>Things/Building/StepCoverings/Planks/PlatformSinglePlanks</texPath>
+		<color>(133,97,67)</color>
+	</graphicData>
+	<rotatable>true</rotatable>
+	<defaultPlacingRot>North</defaultPlacingRot>
+	<altitudeLayer>FloorEmplacement</altitudeLayer>
+	<blocksAltitudes>
+		<li>FloorEmplacement</li>
+	</blocksAltitudes>
+	<statBases>
+		<WorkToBuild>5</WorkToBuild>
+	</statBases>
+	<designationCategory>Floors</designationCategory>
+	<building>
+		<isFence>false</isFence>
+		<paintable>true</paintable>
+	</building>
+	<costList>
+		<WoodLog>3</WoodLog>
+	</costList>
+	<researchPrerequisites>
+		<li>Stonecutting</li>
+	</researchPrerequisites>
+	</ThingDef>
+
+	<ThingDef Name="PlatformPlanks_End" ParentName="PlatformPlanks_Single">
+	<defName>PlatformPlanks_End</defName>
+	<label>Wooden cap ledge</label>
+	<graphicData>
+		<graphicClass>Graphic_Multi</graphicClass>
+		<texPath>Things/Building/StepCoverings/Planks/PlatformPillarPlanks</texPath>
+		<drawOffsetSouth>(0,1,0)</drawOffsetSouth>
+	</graphicData>
+	<rotatable>true</rotatable>
+	<defaultPlacingRot>South</defaultPlacingRot>
+	</ThingDef>
+	
+	<ThingDef Name="PlatformMetallic_End" ParentName="PlatformMetallic_Single" Abstract="True">
+	<defName>PlatformMetallic_End</defName>
+	<graphicData>
+		<graphicClass>Graphic_Multi</graphicClass>
+		<texPath>Things/Building/StepCoverings/Metallic/PlatformPillarMetallic</texPath>
+		<drawOffsetSouth>(0,1,0)</drawOffsetSouth>
+	</graphicData>
+	<rotatable>true</rotatable>
+	</ThingDef>
+	
+	<ThingDef Name="PlatformMetallic_Single" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
+	<defName>PlatformMetallic_Single</defName>
+	<description>A metal pillar forming an elevated platform.</description>
+	<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+	<uiIconScale>0.65</uiIconScale>
+	<uiIconOffset>(0,-0.15)</uiIconOffset> <!--(no z)-->
+	<graphicData>
+		<graphicClass>Graphic_Multi</graphicClass>
+		<drawSize>(3,3)</drawSize>
+		<texPath>Things/Building/StepCoverings/Metallic/PlatformMetallicSingle</texPath>
+		<color>(105,105,105)</color>
+	</graphicData>
+	<rotatable>true</rotatable>
+	<defaultPlacingRot>North</defaultPlacingRot> <!--flipped for compatibility reasons-->
+	<altitudeLayer>FloorEmplacement</altitudeLayer>
+	<blocksAltitudes>
+		<li>FloorEmplacement</li>
+	</blocksAltitudes>
+	<statBases>
+		<WorkToBuild>5</WorkToBuild>
+	</statBases>
+	<designationCategory>Floors</designationCategory>
+	<building>
+		<isFence>false</isFence>
+		<paintable>true</paintable>
+	</building>
+	<researchPrerequisites>
+		<li>Smithing</li>
+	</researchPrerequisites>
+	</ThingDef>
+
+	<ThingDef Name="PlatformSteel_Single" ParentName="PlatformMetallic_Single">
+		<defName>PlatformSteel_Single</defName>
+		<label>Steel pillar ledge</label>
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<graphicData>
+			<color>(105,105,105)</color>
+		</graphicData>
+		<costList>
+			<Steel>3</Steel>
+		</costList>
+	</ThingDef>
+
+	<ThingDef Name="PlatformSteel_End" ParentName="PlatformMetallic_End">
+		<defName>PlatformSteel_End</defName>
+		<label>Steel cap ledge</label>
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<graphicData>
+			<color>(105,105,105)</color>
+		</graphicData>
+		<costList>
+			<Steel>3</Steel>
+		</costList>
+	</ThingDef>
+
 	<ThingDef Name="PlatformSandstone_Single" ParentName="Rockstep_Medium_Single">
 		<defName>PlatformSandstone_Single</defName>
-		<label>Sandstone ledge pillar</label>
+		<label>Sandstone pillar ledge</label>
 		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
 		<graphicData>
 			<color>(126,104,94)</color>
@@ -544,10 +900,34 @@
 			<BlocksSandstone>3</BlocksSandstone>
 		</costList>
 	</ThingDef>
-	
+
+	<ThingDef Name="PlatformSandstone_End" ParentName="Rockstep_Medium_End">
+		<defName>PlatformSandstone_End</defName>
+		<label>Sandstone cap ledge</label>
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<graphicData>
+			<color>(126,104,94)</color>
+		</graphicData>
+		<costList>
+			<BlocksSandstone>3</BlocksSandstone>
+		</costList>
+	</ThingDef>
+
 	<ThingDef Name="PlatformGranite_Single" ParentName="Rockstep_Medium_Single">
 		<defName>PlatformGranite_Single</defName>
-		<label>Granite ledge pillar</label>
+		<label>Granite pillar ledge</label>
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<graphicData>
+			<color>(105,95,97)</color>
+		</graphicData>
+		<costList>
+			<BlocksGranite>3</BlocksGranite>
+		</costList>
+	</ThingDef>
+
+	<ThingDef Name="PlatformGranite_End" ParentName="Rockstep_Medium_End">
+		<defName>PlatformGranite_End</defName>
+		<label>Granite cap ledge</label>
 		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
 		<graphicData>
 			<color>(105,95,97)</color>
@@ -559,7 +939,7 @@
 
 	<ThingDef Name="PlatformLimestone_Single" ParentName="Rockstep_Medium_Single">
 		<defName>PlatformLimestone_Single</defName>
-		<label>Limestone ledge pillar</label>
+		<label>Limestone pillar ledge</label>
 		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
 		<graphicData>
 			<color>(158,153,135)</color>
@@ -568,10 +948,22 @@
 			<BlocksLimestone>3</BlocksLimestone>
 		</costList>
 	</ThingDef>
-	
+
+	<ThingDef Name="PlatformLimestone_End" ParentName="Rockstep_Medium_End">
+		<defName>PlatformLimestone_End</defName>
+		<label>Limestone cap ledge</label>
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<graphicData>
+			<color>(158,153,135)</color>
+		</graphicData>
+		<costList>
+			<BlocksLimestone>3</BlocksLimestone>
+		</costList>
+	</ThingDef>
+
 	<ThingDef Name="PlatformSlate_Single" ParentName="Rockstep_Medium_Single">
 		<defName>PlatformSlate_Single</defName>
-		<label>Slate ledge pillar</label>
+		<label>Slate pillar ledge </label>
 		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
 		<graphicData>
 			<color>(70,70,70)</color>
@@ -580,10 +972,22 @@
 			<BlocksSlate>3</BlocksSlate>
 		</costList>
 	</ThingDef>
-	
+
+	<ThingDef Name="PlatformSlate_End" ParentName="Rockstep_Medium_End">
+		<defName>PlatformSlate_End</defName>
+		<label>Slate cap ledge</label>
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<graphicData>
+			<color>(70,70,70)</color>
+		</graphicData>
+		<costList>
+			<BlocksSlate>3</BlocksSlate>
+		</costList>
+	</ThingDef>
+
 	<ThingDef Name="PlatformMarble_Single" ParentName="Rockstep_Medium_Single">
 		<defName>PlatformMarble_Single</defName>
-		<label>Marble ledge pillar</label>
+		<label>Marble pillar ledge</label>
 		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
 		<graphicData>
 			<color>(132,135,132)</color>
@@ -592,118 +996,275 @@
 			<BlocksMarble>3</BlocksMarble>
 		</costList>
 	</ThingDef>
-	
+
+	<ThingDef Name="PlatformMarble_End" ParentName="Rockstep_Medium_End">
+		<defName>PlatformMarble_End</defName>
+		<label>Marble cap ledge</label>
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<graphicData>
+			<color>(132,135,132)</color>
+		</graphicData>
+		<costList>
+			<BlocksMarble>3</BlocksMarble>
+		</costList>
+	</ThingDef>
+
+	<ThingDef Name="PlatformSilver_Single" ParentName="PlatformMetallic_Single">
+		<defName>PlatformSilver_Single</defName>
+		<label>Silver pillar ledge</label>
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<graphicData>
+			<color>(180,173,150)</color>
+		</graphicData>
+		<costList>
+			<Silver>30</Silver>
+		</costList>
+	</ThingDef>
+
+	<ThingDef Name="PlatformSilver_End" ParentName="PlatformMetallic_End">
+		<defName>PlatformSilver_End</defName>
+		<label>Silver cap ledge</label>
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<graphicData>
+			<color>(180,173,150)</color>
+		</graphicData>
+		<costList>
+			<Silver>30</Silver>
+		</costList>
+	</ThingDef>
+
+	<ThingDef Name="PlatformUranium_Single" ParentName="PlatformMetallic_Single">
+		<defName>PlatformUranium_Single</defName>
+		<label>Uranium pillar ledge</label>
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<costList>
+			<Uranium>3</Uranium>
+		</costList>
+		<graphicData>
+			<color>(100,100,100)</color>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef Name="PlatformUranium_End" ParentName="PlatformMetallic_End">
+		<defName>PlatformUranium_End</defName>
+		<label>Uranium cap ledge</label>
+		<designatorDropdown>PlatformSingle_Material</designatorDropdown>
+		<graphicData>
+			<color>(100,100,100)</color>
+		</graphicData>
+		<costList>
+			<Uranium>3</Uranium>
+		</costList>
+	</ThingDef>
+
+	<ThingDef Name="PlatformPlasteel_Single" ParentName="PlatformMetallic_Single">
+			<defName>PlatformPlasteel_Single</defName>
+			<label>Plasteel pillar ledge</label>
+			<costList>
+				<Plasteel>3</Plasteel>
+			</costList>
+			<graphicData>
+				<color>(160,178,181)</color>
+			</graphicData>
+	</ThingDef>
+
+	<ThingDef Name="PlatformPlasteel_End" ParentName="PlatformMetallic_End">
+			<defName>PlatformPlasteel_End</defName>
+			<label>Plasteel cap ledge</label>
+			<costList>
+				<Plasteel>3</Plasteel>
+			</costList>
+			<graphicData>
+				<color>(160,178,181)</color>
+			</graphicData>
+	</ThingDef>
+
+	<ThingDef Name="PlatformGold_Single" ParentName="PlatformMetallic_Single">
+		<defName>PlatformGold_Single</defName>
+		<label>Golden pillar ledge</label>
+		<graphicData>
+			<color>(255,235,122)</color>
+		</graphicData>
+		<statBases>
+			<Beauty>20</Beauty>
+		</statBases>
+		<costList>
+			<Gold>30</Gold>
+		</costList>
+	</ThingDef>
+
+	<ThingDef Name="PlatformGold_End" ParentName="PlatformMetallic_End">
+		<defName>PlatformGold_End</defName>
+		<label>Golden cap ledge</label>
+		<graphicData>
+			<color>(255,235,122)</color>
+		</graphicData>
+		<statBases>
+			<Beauty>20</Beauty>
+		</statBases>
+		<costList>
+			<Gold>30</Gold>
+		</costList>
+	</ThingDef>
+
 <!-- Platform Corners -->
-	
+
 
 	<DesignatorDropdownGroupDef>
-		<defName>PlatformCorner_Material</defName>
-		<label>Platform Corner</label>
-		<iconSource>Placed</iconSource>
+		<defName>Platform_Material</defName>
+		<label>Platform Material</label>
+		<!--iconSource>Placed</iconSource-->
 	</DesignatorDropdownGroupDef>
-	
+
 	<ThingDef Name="PlatformPlanks_Corner" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>PlatformPlanks_Corner</defName>
-		<label>Wooden ledge</label>
+		<label>Wooden corner ledge</label>
 		<description>A pile of earth forming an elevated platform.</description>
 		<designationCategory>Floors</designationCategory>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
-		<uiIconScale>0.65</uiIconScale>	
+		<designatorDropdown>Platform_Material</designatorDropdown>
+		<uiIconScale>0.65</uiIconScale>
+		<uiIconOffset>(0,-0.15)</uiIconOffset>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/PlatformCornerPlanks</texPath>
-			<drawOffset>(0,0,0.03)</drawOffset>
-			<drawOffsetSouth>(0,-0.3,-0.17)</drawOffsetSouth>
+			<texPath>Things/Building/StepCoverings/Planks/PlatformCornerPlanks</texPath>
+			<drawOffset>(0,0.1,0)</drawOffset> <!--(0,0.1,0.03)-->
+			<drawOffsetSouth>(0,0.1,0)</drawOffsetSouth><!--(0,0.1,-0.17)-->
 			<color>(133,97,67)</color>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<costList>
 			<WoodLog>3</WoodLog>
 		</costList>
-</ThingDef>
-	
-<ThingDef Name="PlatformMetallic_Corner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
+	</ThingDef>
+
+	<ThingDef Name="PlatformPlanks_InnerCorner" ParentName="PlatformPlanks_Corner">
+		<defName>PlatformPlanks_InnerCorner</defName>
+		<label>Wooden inside corner ledge </label>
+		<graphicData>
+			<texPath>Things/Building/StepCoverings/Planks/PlatformInnerPlanks</texPath>
+			<drawOffset>(0,0,0)</drawOffset>
+			<drawOffsetSouth>(0,0,0)</drawOffsetSouth>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef Name="PlatformMetallic_Corner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 		<defName>PlatformMetallic_Corner</defName>
 		<description>Plates of metallic sheeting, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over...?</description>
 		<designationCategory>Floors</designationCategory>
+		<designatorDropdown>Platform_Material</designatorDropdown>
+		<uiIconScale>0.65</uiIconScale>
+		<uiIconOffset>(0,-0.15)</uiIconOffset>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/PlatformCornerMetallic</texPath>
-			<drawOffset>(0,0,-0.25)</drawOffset>
-			<drawOffsetSouth>(0,0,-0.25)</drawOffsetSouth>
+			<texPath>Things/Building/StepCoverings/Metallic/PlatformCornerMetallic</texPath>
+			<drawOffset>(0,0,0)</drawOffset>
+			<drawOffsetSouth>(0,0,0)</drawOffsetSouth>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
-		  <li>Smithing</li>
+			<li>Smithing</li>
 		</researchPrerequisites>
-</ThingDef>  
-	
+	</ThingDef>
+
+	<ThingDef Name="PlatformInnerMetallic" ParentName="PlatformMetallic_Corner" Abstract="True">
+		<defName>PlatformInnerMetallic</defName>
+		<uiIconOffset>(0,0)</uiIconOffset>
+		<graphicData>
+			<texPath>Things/Building/StepCoverings/Metallic/PlatformInnerMetallic</texPath>
+		</graphicData>
+	</ThingDef>
+
 	<ThingDef Name="PlatformSteel_Corner" ParentName="PlatformMetallic_Corner">
 		<defName>PlatformSteel_Corner</defName>
-		<label>Steel ledge</label>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
+		<label>Steel corner ledge</label>
 		<graphicData>
 			<color>(105,105,105)</color>
 		</graphicData>
 		<costList>
 			<Steel>3</Steel>
 		</costList>
-	</ThingDef>  	
+	</ThingDef>
 	
-<ThingDef Name="Rockstep_Medium_Corner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
+	<ThingDef Name="PlatformSteel_InnerCorner" ParentName="PlatformInnerMetallic">
+		<defName>PlatformSteel_InnerCorner</defName>
+		<label>Steel inside corner ledge</label>
+		<graphicData>
+			<color>(105,105,105)</color>
+		</graphicData>
+		<costList>
+			<Steel>3</Steel>
+		</costList>
+	</ThingDef>
+
+	<ThingDef Name="Rockstep_Medium_Corner" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 		<defName>Rockstep_Medium_Corner</defName>
 		<label>ledge</label>
 		<description>A pile of stones forming an elevated platform.</description>
 		<designationCategory>Floors</designationCategory>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
-		<uiIconScale>0.55</uiIconScale>	
+		<designatorDropdown>Platform_Material</designatorDropdown>
+		<uiIconScale>0.65</uiIconScale>
+		<uiIconOffset>(0,-0.15)</uiIconOffset>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<drawOffsetSouth>(0,0,-0.38)</drawOffsetSouth>
-			<drawOffset>(0,0,-0.38)</drawOffset>
-			<texPath>Things/Building/StepCoverings/RockstepThreeCorner</texPath>
+			<drawOffsetSouth>(0,-1.0,0)</drawOffsetSouth>
+			<drawOffset>(0,-1.0,0)</drawOffset>
+			<texPath>Things/Building/StepCoverings/Stony/RockstepThreeCorner</texPath>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
 		  <li>Stonecutting</li>
 		</researchPrerequisites>
-</ThingDef>  
-	
+	</ThingDef>
+
+	<ThingDef Name="Rockstep_InnerCorner" ParentName="Rockstep_Medium_Corner" Abstract="True">
+		<defName>Rockstep_InnerCorner</defName>
+		<label>Stone inside corner ledge </label>
+		<uiIconOffset>(0,0)</uiIconOffset>
+		<graphicData>
+			<texPath>Things/Building/StepCoverings/Stony/RockstepThreeInner</texPath>
+			<drawOffset>(0,0,0)</drawOffset>
+			<drawOffsetSouth>(0,0,0)</drawOffsetSouth>
+		</graphicData>
+	</ThingDef>
+
 	<ThingDef Name="PlatformSandstone_Corner" ParentName="Rockstep_Medium_Corner">
 		<defName>PlatformSandstone_Corner</defName>
-		<label>Sandstone ledge</label>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
+		<label>Sandstone corner ledge</label>
 		<graphicData>
 			<color>(126,104,94)</color>
 		</graphicData>
@@ -711,11 +1272,32 @@
 			<BlocksSandstone>3</BlocksSandstone>
 		</costList>
 	</ThingDef>
-	
+
+	<ThingDef Name="PlatformSandstone_InnerCorner" ParentName="Rockstep_InnerCorner">
+		<defName>PlatformSandstone_InnerCorner</defName>
+		<label>Sandstone inside corner ledge</label>
+		<graphicData>
+			<color>(126,104,94)</color>
+		</graphicData>
+		<costList>
+			<BlocksSandstone>3</BlocksSandstone>
+		</costList>
+	</ThingDef>
+
 	<ThingDef Name="PlatformGranite_Corner" ParentName="Rockstep_Medium_Corner">
 		<defName>PlatformGranite_Corner</defName>
-		<label>Granite ledge</label>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
+		<label>Granite corner ledge</label>
+		<graphicData>
+			<color>(105,95,97)</color>
+		</graphicData>
+		<costList>
+			<BlocksGranite>3</BlocksGranite>
+		</costList>
+	</ThingDef>
+
+	<ThingDef Name="PlatformGranite_InnerCorner" ParentName="Rockstep_InnerCorner">
+		<defName>PlatformGranite_InnerCorner</defName>
+		<label>Granite inside corner ledge</label>
 		<graphicData>
 			<color>(105,95,97)</color>
 		</graphicData>
@@ -726,8 +1308,18 @@
 
 	<ThingDef Name="PlatformLimestone_Corner" ParentName="Rockstep_Medium_Corner">
 		<defName>PlatformLimestone_Corner</defName>
-		<label>Limestone ledge</label>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
+		<label>Limestone corner ledge</label>
+		<graphicData>
+			<color>(158,153,135)</color>
+		</graphicData>
+		<costList>
+			<BlocksLimestone>3</BlocksLimestone>
+		</costList>
+	</ThingDef>
+	
+	<ThingDef Name="PlatformLimestone_InnerCorner" ParentName="Rockstep_InnerCorner">
+		<defName>PlatformLimestone_InnerCorner</defName>
+		<label>Limestone inside corner ledge</label>
 		<graphicData>
 			<color>(158,153,135)</color>
 		</graphicData>
@@ -738,8 +1330,18 @@
 	
 	<ThingDef Name="PlatformSlate_Corner" ParentName="Rockstep_Medium_Corner">
 		<defName>PlatformSlate_Corner</defName>
-		<label>Slate ledge</label>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
+		<label>Slate corner ledge</label>
+		<graphicData>
+			<color>(70,70,70)</color>
+		</graphicData>
+		<costList>
+			<BlocksSlate>3</BlocksSlate>
+		</costList>
+	</ThingDef>
+	
+	<ThingDef Name="PlatformSlate_InnerCorner" ParentName="Rockstep_InnerCorner">
+		<defName>PlatformSlate_InnerCorner</defName>
+		<label>Slate inside corner ledge</label>
 		<graphicData>
 			<color>(70,70,70)</color>
 		</graphicData>
@@ -750,44 +1352,35 @@
 	
 	<ThingDef Name="PlatformMarble_Corner" ParentName="Rockstep_Medium_Corner">
 		<defName>PlatformMarble_Corner</defName>
-		<label>Marble ledge</label>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
+		<label>Marble corner ledge</label>
 		<graphicData>
 			<color>(132,135,132)</color>
 		</graphicData>
+		<statBases>
+			<Beauty>1</Beauty>
+		</statBases>
 		<costList>
 			<BlocksMarble>3</BlocksMarble>
 		</costList>
 	</ThingDef>
-	
-	<ThingDef Name="PlatformPlasteel_Corner" ParentName="PlatformMetallic_Corner">
-		<defName>PlatformPlasteel_Corner</defName>
-		<label>Plasteel ledge</label>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
+
+	<ThingDef Name="PlatformMarble_InnerCorner" ParentName="Rockstep_InnerCorner">
+		<defName>PlatformMarble_InnerCorner</defName>
+		<label>Marble inside corner ledge</label>
 		<graphicData>
-			<color>(160,178,181)</color>
+			<color>(132,135,132)</color>
 		</graphicData>
+		<statBases>
+			<Beauty>1</Beauty>
+		</statBases>
 		<costList>
-			<Plasteel>3</Plasteel>
+			<BlocksMarble>3</BlocksMarble>
 		</costList>
-	</ThingDef>  	
-	
-	<ThingDef Name="PlatformUranium_Corner" ParentName="PlatformMetallic_Corner">
-		<defName>PlatformUranium_Corner</defName>
-		<label>Uranium ledge</label>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
-		<graphicData>
-			<color>(100,100,100)</color>
-		</graphicData>
-		<costList>
-			<Uranium>3</Uranium>
-		</costList>
-	</ThingDef>  	
-	
+	</ThingDef>
+
 	<ThingDef Name="PlatformSilver_Corner" ParentName="PlatformMetallic_Corner">
 		<defName>PlatformSilver_Corner</defName>
-		<label>Silver ledge</label>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
+		<label>Silver corner ledge</label>
 		<graphicData>
 			<color>(180,173,150)</color>
 		</graphicData>
@@ -797,12 +1390,83 @@
 		<costList>
 			<Silver>30</Silver>
 		</costList>
-	</ThingDef>  	
+	</ThingDef>
 	
+	<ThingDef Name="PlatformSilver_InnerCorner" ParentName="PlatformInnerMetallic">
+		<defName>PlatformSilver_InnerCorner</defName>
+		<label>Silver inside corner ledge</label>
+		<graphicData>
+			<color>(180,173,150)</color>
+		</graphicData>
+		<statBases>
+			<Beauty>5</Beauty>
+		</statBases>
+		<costList>
+			<Silver>30</Silver>
+		</costList>
+	</ThingDef>
+
+	<ThingDef Name="PlatformPlasteel_Corner" ParentName="PlatformMetallic_Corner">
+		<defName>PlatformPlasteel_Corner</defName>
+		<label>Plasteel corner ledge</label>
+		<graphicData>
+			<color>(160,178,181)</color>
+		</graphicData>
+		<costList>
+			<Plasteel>3</Plasteel>
+		</costList>
+	</ThingDef>
+	
+	<ThingDef Name="PlatformPlasteel_InnerCorner" ParentName="PlatformInnerMetallic">
+		<defName>PlatformPlasteel_InnerCorner</defName>
+		<label>Plasteel inside corner ledge</label>
+		<graphicData>
+			<color>(160,178,181)</color>
+		</graphicData>
+		<costList>
+			<Plasteel>3</Plasteel>
+		</costList>
+	</ThingDef>
+
+	<ThingDef Name="PlatformUranium_Corner" ParentName="PlatformMetallic_Corner">
+		<defName>PlatformUranium_Corner</defName>
+		<label>Uranium corner ledge</label>
+		<graphicData>
+			<color>(100,100,100)</color>
+		</graphicData>
+		<costList>
+			<Uranium>3</Uranium>
+		</costList>
+	</ThingDef>  	
+
+	<ThingDef Name="PlatformUranium_InnerCorner" ParentName="PlatformInnerMetallic">
+		<defName>PlatformUranium_InnerCorner</defName>
+		<label>Uranium inside corner ledge</label>
+		<graphicData>
+			<color>(100,100,100)</color>
+		</graphicData>
+		<costList>
+			<Uranium>3</Uranium>
+		</costList>
+	</ThingDef>
+
 	<ThingDef Name="PlatformGold_Corner" ParentName="PlatformMetallic_Corner">
 		<defName>PlatformGold_Corner</defName>
-		<label>Golden ledge</label>
-		<designatorDropdown>PlatformCorner_Material</designatorDropdown>
+		<label>Golden corner ledge</label>
+		<graphicData>
+			<color>(255,235,122)</color>
+		</graphicData>
+		<statBases>
+			<Beauty>20</Beauty>
+		</statBases>
+		<costList>
+			<Gold>30</Gold>
+		</costList>
+	</ThingDef>
+	
+	<ThingDef Name="PlatformGold_InnerCorner" ParentName="PlatformInnerMetallic">
+		<defName>PlatformGold_InnerCorner</defName>
+		<label>Golden inside corner ledge</label>
 		<graphicData>
 			<color>(255,235,122)</color>
 		</graphicData>
@@ -819,111 +1483,119 @@
 	<DesignatorDropdownGroupDef>
 		<defName>PlatformEdge_Material</defName>
 		<label>Platform Edge</label>
-		<iconSource>Placed</iconSource>
+		<!--iconSource-->
 	</DesignatorDropdownGroupDef>
 
-<ThingDef Name="PlatformPlanks_Edge" ParentName="BuildingTerrainCoveringSingleBase">
+	<ThingDef Name="PlatformPlanks_Edge" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>PlatformPlanks_Edge</defName>
 		<label>Wooden ledge</label>
 		<description>A pile of earth forming an elevated platform.</description>
 		<designationCategory>Floors</designationCategory>
 		<designatorDropdown>PlatformEdge_Material</designatorDropdown>
 		<placingDraggableDimensions>1</placingDraggableDimensions>
-		<uiIconScale>0.65</uiIconScale>	
+		<uiIconScale>0.65</uiIconScale>
+		<uiIconOffset>(0,-0.2)</uiIconOffset>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/PlatformEdgePlanks</texPath>
-			<drawOffset>(0,-0.6,0.03)</drawOffset>
-			<drawOffsetSouth>(0,-0.3,-0.17)</drawOffsetSouth>
+			<texPath>Things/Building/StepCoverings/Planks/PlatformEdgePlanks</texPath>
+			<drawOffset>(0,0.1,0)</drawOffset> <!--old(0,-0.6,0.03) edges above corners (0,0.1,0.03)-->
+			<drawOffsetSouth>(0,0.05,0)</drawOffsetSouth> <!--(0,-0.3,-0.17) corner above South edges (0,0.05,-0.03)-->
 			<color>(133,97,67)</color>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<costList>
 			<WoodLog>3</WoodLog>
 		</costList>
-</ThingDef>
+	</ThingDef>
 	
-<ThingDef Name="PlatformMetallic_Edge" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
+	<ThingDef Name="PlatformMetallic_Edge" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 		<defName>PlatformMetallic_Edge</defName>
 		<description>Plates of metallic sheeting, forming the edge of a section of rock or earth raising the ground. Gentle enough to be walked over...?</description>
 		<designationCategory>Floors</designationCategory>
+		<designatorDropdown>PlatformEdge_Material</designatorDropdown>
 		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<uiIconScale>0.65</uiIconScale>
+		<uiIconOffset>(0,-0.2)</uiIconOffset>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<texPath>Things/Building/StepCoverings/PlatformEdgeMetallic</texPath>
-			<drawOffset>(0,0.5,-0.25)</drawOffset>
-			<drawOffsetSouth>(0,0.4,-0.25)</drawOffsetSouth>
+			<texPath>Things/Building/StepCoverings/Metallic/PlatformEdgeMetallic</texPath>
+			<drawOffset>(0,0.5,0)</drawOffset>
+			<drawOffsetSouth>(0,0.4,0)</drawOffsetSouth>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
 		<blockPlants>true</blockPlants>
 		<clearBuildingArea>true</clearBuildingArea>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
 		  <li>Smithing</li>
 		</researchPrerequisites>
-</ThingDef>
-	
+	</ThingDef>
+
 	<ThingDef Name="PlatformSteel_Edge" ParentName="PlatformMetallic_Edge">
 		<defName>PlatformSteel_Edge</defName>
 		<label>Steel ledge</label>
-		<designatorDropdown>PlatformEdge_Material</designatorDropdown>
 		<graphicData>
 			<color>(105,105,105)</color>
 		</graphicData>
 		<costList>
 			<Steel>3</Steel>
 		</costList>
-	</ThingDef>  	
+	</ThingDef>
 
-<ThingDef Name="Rockstep_Medium_Edge" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
+	<ThingDef Name="Rockstep_Medium_Edge" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
 		<defName>Rockstep_Medium_Edge</defName>
-		<label>ledge</label>
 		<description>A pile of stones forming an elevated platform.</description>
 		<designationCategory>Floors</designationCategory>
-		<uiIconScale>0.55</uiIconScale>	
+		<uiIconScale>0.65</uiIconScale>
+		<uiIconOffset>(0,-0.2)</uiIconOffset>
 		<placingDraggableDimensions>1</placingDraggableDimensions>
 		<graphicData>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,3)</drawSize>
-			<drawOffset>(0,0.5,-0.38)</drawOffset>
-			<drawOffsetSouth>(0,0.4,-0.38)</drawOffsetSouth>
-			<texPath>Things/Building/StepCoverings/RockstepThreeEdge</texPath>
+			<drawOffset>(0,0.5,0)</drawOffset>
+			<drawOffsetSouth>(0,0.4,0)</drawOffsetSouth>
+			<texPath>Things/Building/StepCoverings/Stony/RockstepThreeEdge</texPath>
 		</graphicData>
+		<rotatable>true</rotatable>
+		<defaultPlacingRot>South</defaultPlacingRot>
 		<altitudeLayer>FloorEmplacement</altitudeLayer>
 		<blocksAltitudes>
 			<li>FloorEmplacement</li>
 		</blocksAltitudes>
-		<!--<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat> -->
-		<!--<pathCost>10</pathCost> 0,5,10..+3-->
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<!--<pathCostIgnoreRepeat> -->
+		<!--<pathCost>-->
+		
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<paintable>true</paintable>
 		</building>
 		<researchPrerequisites>
 		  <li>Stonecutting</li>
 		</researchPrerequisites>
 </ThingDef>
-	
+
 	<ThingDef Name="PlatformSandstone_Edge" ParentName="Rockstep_Medium_Edge">
 		<defName>PlatformSandstone_Edge</defName>
 		<label>Sandstone ledge</label>
@@ -935,7 +1607,7 @@
 			<BlocksSandstone>3</BlocksSandstone>
 		</costList>
 	</ThingDef>
-	
+
 	<ThingDef Name="PlatformGranite_Edge" ParentName="Rockstep_Medium_Edge">
 		<defName>PlatformGranite_Edge</defName>
 		<label>Granite ledge</label>
@@ -959,7 +1631,7 @@
 			<BlocksLimestone>3</BlocksLimestone>
 		</costList>
 	</ThingDef>
-	
+
 	<ThingDef Name="PlatformSlate_Edge" ParentName="Rockstep_Medium_Edge">
 		<defName>PlatformSlate_Edge</defName>
 		<label>Slate ledge</label>
@@ -971,7 +1643,7 @@
 			<BlocksSlate>3</BlocksSlate>
 		</costList>
 	</ThingDef>
-	
+
 	<ThingDef Name="PlatformMarble_Edge" ParentName="Rockstep_Medium_Edge">
 		<defName>PlatformMarble_Edge</defName>
 		<label>Marble ledge</label>
@@ -983,7 +1655,7 @@
 			<BlocksMarble>3</BlocksMarble>
 		</costList>
 	</ThingDef>
-	
+
 	<ThingDef Name="PlatformSilver_Edge" ParentName="PlatformMetallic_Edge">
 		<defName>PlatformSilver_Edge</defName>
 		<label>Silver ledge</label>
@@ -1010,7 +1682,7 @@
 			<Uranium>3</Uranium>
 		</costList>
 	</ThingDef>  	
-	
+
 	<ThingDef Name="PlatformPlasteel_Edge" ParentName="PlatformMetallic_Edge">
 		<defName>PlatformPlasteel_Edge</defName>
 		<label>Plasteel ledge</label>
@@ -1021,8 +1693,8 @@
 		<costList>
 			<Plasteel>3</Plasteel>
 		</costList>
-	</ThingDef>  	
-	
+	</ThingDef>
+
 	<ThingDef Name="PlatformGold_Edge" ParentName="PlatformMetallic_Edge">
 		<defName>PlatformGold_Edge</defName>
 		<label>Golden ledge</label>
@@ -1036,8 +1708,8 @@
 		<costList>
 			<Gold>30</Gold>
 		</costList>
-	</ThingDef>  	
-	
+	</ThingDef>
+
 <!-- ========== 1x1 Shader ========= -->
 
 <DesignatorDropdownGroupDef>
@@ -1052,19 +1724,19 @@
 		<uiOrder>2801</uiOrder>
 		<designatorDropdown>Rockstep_ShaderLevels</designatorDropdown>
 		<placingDraggableDimensions>2</placingDraggableDimensions>
+		<uiIconScale>0.97</uiIconScale>
+		<uiIconOffset>(0,0)</uiIconOffset>
 		<rotatable>false</rotatable>
 		<statBases>
 			<WorkToBuild>0</WorkToBuild>
-			<Beauty>0</Beauty> <!-- No free beauty, come back when it costs work / materials -->
+			<Beauty>0</Beauty>
 		</statBases>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<selectable>false</selectable>
-		<neverMultiSelect>true</neverMultiSelect>
+		<selectable>false</selectable> <!-- Overlaps stockpiles, growing zones! -->
 		<useHitPoints>false</useHitPoints>
 		<designationCategory>Floors</designationCategory>
-		<altitudeLayer>FloorCoverings</altitudeLayer>
+		<altitudeLayer>Terrain</altitudeLayer>
 		<blocksAltitudes>
-			<li>FloorCoverings</li>
+			<li>Terrain</li>
 		</blocksAltitudes>
 		<building>
 			<canPlaceOverWall>true</canPlaceOverWall>
@@ -1072,6 +1744,7 @@
 			<isFence>false</isFence>
 			<paintable>false</paintable>
 		</building>
+		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
 		<costStuffCount>0</costStuffCount>
 		<researchPrerequisites>
 		  <li>Stonecutting</li>
@@ -1082,75 +1755,78 @@
 		<defName>Rockstep_Medium_Shader</defName>
 		<graphicData>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,3)</drawSize>
 			<drawOffset>(0,-1,0)</drawOffset>
 			<shaderType>Transparent</shaderType>
-			<texPath>Things/Building/StepCoverings/RockstepThreeSingleShader</texPath>
+			<linkType>Asymmetric</linkType>
+			<linkFlags>
+				<li>Custom4</li>
+			</linkFlags>
+			<asymmetricLink>
+				<linkFlags>
+					<li>Wall</li>
+					<li>Rock</li>
+					<li>Fences</li>
+					<li>MapEdge</li>
+					<li>Sandbags</li>
+					<li>Barricades</li>
+				</linkFlags>
+			</asymmetricLink>
 		</graphicData>
-		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-</ThingDef>  
+</ThingDef>
 
-<!-- ============== Neither of these works as intended, save for generation or terrain changes?? =============================== -->	
-	<!--<ThingDef ParentName="Rockstep_Light_Shader">--> <!-- Level 0 -->
-		<!--	<defName>Rockstep_ShaderZ</defName>-->
+<!-- ============== save for generation or terrain changes =============================== -->	
+
 		<!--	<label>Level ground</label>-->
 		<!--	<description>Low, level terrain, just on average for the nearby area.</description>-->
-		<!--	<graphicData>-->
-		<!--		<graphicClass>Graphic_Single</graphicClass>-->
-		<!--		<texPath>Things/Building/StepCoverings/RockstepThreeSingleBlank</texPath>--> <!-- empty texture -->
-		<!--	</graphicData>-->
-		<!--	<altitudeLayer>FloorCoverings</altitudeLayer>-->
-		<!--	<blocksAltitudes>-->
-		<!--		<li>FloorCoverings</li> --> <!-- No difference, some steps are very flat -->
-		<!--	</blocksAltitudes>-->
-	<!--</ThingDef>	-->
-	
-	<!--<ThingDef ParentName="Rockstep_Medium_Shader">                  Not significant  -->
-		<!--<defName>Rockstep_ShaderA</defName>-->
+		<!-- (Fully transparent tile)-->
+
 		<!--<label>Elevated ground</label>-->
 		<!--<description>A gentle, barely remarkable change to ground height. It's just a little uneven.</description>-->
 		<!--<graphicData>-->
 		<!--	<color>(110,110,110)</color>-->
-		<!--</graphicData>-->
-		<!--<terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>--> 
-		<!--<altitudeLayer>FloorCoverings</altitudeLayer>-->
-		<!--		<blocksAltitudes>	<li>FloorCoverings</li> </blocksAltitudes>-->
-	<!--</ThingDef>-->
+
 
 <ThingDef ParentName="Rockstep_Medium_Shader">
 	<defName>Rockstep_ShaderB</defName>
 	<label>Low height</label>
+	<uiIconPath>Things/Building/Linked/rockstepshaderlowAtlas</uiIconPath>
 	<description>A short section of rock or earth raising the ground.</description>
 	<graphicData>
-		<color>(160,160,160)</color>
+		<texPath>Things/Building/Linked/rockstepshaderlowAtlas</texPath> <!-- seperated because of potential reqs in future, same file recolored (160,160,160)-->
 	</graphicData>
 </ThingDef>
   
 <ThingDef ParentName="Rockstep_Medium_Shader">
 	<defName>Rockstep_ShaderC</defName>
 	<label>Elevated height</label>
+	<uiIconPath>Things/Building/Linked/rockstepshaderelevatedAtlas</uiIconPath>
 	<description>A somewhat elevated section of rock or earth raising the ground.</description>
 	<graphicData>
-		<color>(200,200,200)</color>
+		<texPath>Things/Building/Linked/rockstepshaderelevatedAtlas</texPath>
+		<!--color>(200,200,200)</color-->
 	</graphicData>
 </ThingDef>
   
   
 <ThingDef ParentName="Rockstep_Medium_Shader">
 	<defName>Rockstep_ShaderD</defName>
+	<uiIconPath>Things/Building/Linked/rockstepshaderfullAtlas</uiIconPath>
 	<label>Full height</label>
 	<description>A significantly elevated section of rock or earth raising the ground.</description>
 	<graphicData>
-		<color>(240,240,240)</color>
+		<texPath>Things/Building/Linked/rockstepshaderfullAtlas</texPath>
+		<!--color>(240,240,240)</color-->
 	</graphicData>
 </ThingDef>
 
 <ThingDef ParentName="Rockstep_Medium_Shader">
 	<defName>Rockstep_ShaderF</defName>
 	<label>Full height outcrop</label>
+	<uiIconPath>Things/Building/Linked/rockstepshaderoutcropAtlas</uiIconPath>
 	<description>A prominently elevated section of rock raising the ground.</description>
 	<graphicData>
-		<color>(180,180,240)</color>
+		<texPath>Things/Building/Linked/rockstepshaderoutcropAtlas</texPath>
+		<!--color>(180,180,240)</color-->
 	</graphicData>
 	<terrainAffordanceNeeded>SmoothableStone</terrainAffordanceNeeded>
 </ThingDef>
@@ -1165,14 +1841,14 @@
 			<!--<graphicClass>Graphic_Single</graphicClass>-->
 			<!--<drawSize>(1,1)</drawSize>-->
 			<!--<drawOffsetSouth>(0,0,0)</drawOffsetSouth>-->
-			<!--<drawOffsetNorth>(0,0,-0.25)</drawOffsetNorth>-->
+			<!--<drawOffsetNorth>(0,0,0)</drawOffsetNorth>-->
 			<!--<texPath>Things/Building/StepCoverings/LedgeSimple</texPath>-->
 		<!--</graphicData>-->
 		<!--<passability>Standable</passability>-->
 		
-		<!--<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>-->
+		<!--<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>-->
 		<!--<building>-->
-			<!--<isFence>true</isFence>-->
+			<!--<isFence>false</isFence>-->
 			<!--<paintable>true</paintable>-->
 		<!--</building>-->
 		<!--<stuffCategories>-->
@@ -1183,24 +1859,26 @@
 		  <!--<li>Stonecutting</li>-->
 		<!--</researchPrerequisites>-->
 	<!--</ThingDef>  -->
- 
- 
- <!-- ========= Medium (Linked Graphics Variant) (100% transparency, TODO make fill shader) ================= -->
- 
-	<ThingDef Name="Rockstep_Lower_Linked" ParentName="BuildingTerrainCoveringSingleBase">
+
+
+<!-- ========= Medium (Linked Graphics Variant) (100% transparency) ================= -->
+
+<!--DesignatorDropdownGroupDef //disabled by appearances// -->
+
+	<ThingDef Name="Rockstep_Short_Linked" ParentName="BuildingTerrainCoveringSingleBase">
 		<defName>Rockstep_Short_Linked</defName>
 		<label>slope</label>
 		<description>A short section of rock or earth raising the ground.</description>
+		<uiIconOffset>(0,0)</uiIconOffset>
 		<graphicData>
 			<texPath>Things/Building/Linked/Rockstep</texPath>
 			<graphicClass>Graphic_Appearances</graphicClass>
-			<color>(200,200,200)</color>
-			<drawOffset>(0,-0.8,0)</drawOffset>
 		<linkType>Asymmetric</linkType>
 		<linkFlags>
 			<li>Custom1</li>
 		</linkFlags>
 		<asymmetricLink>
+			<linkToDoors>true</linkToDoors>
 			<linkFlags>
 				  <li>Wall</li>
 				  <li>Rock</li>
@@ -1209,34 +1887,33 @@
 			</linkFlags>
 		</asymmetricLink>
 		</graphicData>
-		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
+		<uiIconPath>Things/Building/Linked/SmoothLinkedIcon</uiIconPath>
 		<uiIconPathsStuff>
 		  <li>
 			<appearance>Planks</appearance>
-			<iconPath>Things/Building/Linked/WallPlanks_MenuIcon</iconPath>
+			<iconPath>Things/Building/Linked/PlanksLinkedIcon</iconPath>
 		  </li>
 		  <li>
 			<appearance>Bricks</appearance>
-			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
+			<iconPath>Things/Building/Linked/RockstepLinkedIcon</iconPath>
 		  </li>
 		</uiIconPathsStuff>
-		<neverMultiSelect>false</neverMultiSelect>
 		<placingDraggableDimensions>2</placingDraggableDimensions>
 		<altitudeLayer>TerrainScatter</altitudeLayer>
 		<blocksAltitudes>
 			<li>TerrainScatter</li>
 		</blocksAltitudes>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<thingClass>Building</thingClass>
 		<designationCategory>Floors</designationCategory>
 		<clearBuildingArea>true</clearBuildingArea>
 		<castEdgeShadows>false</castEdgeShadows>
-		<fillPercent>0</fillPercent>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<isInert>true</isInert>
 			<paintable>true</paintable>
+			<!--blueprintGraphicData-->
 		</building>
+		<drawDamagedOverlay>false</drawDamagedOverlay>
 		<stuffCategories>
 			<li>Stony</li>
 			<li>Metallic</li>
@@ -1254,121 +1931,53 @@
 		<defName>Rockstep_Upper_Linked</defName>
 		<label>upper slope</label>
 		<description>An elevated section of rock or earth raising the ground.</description>
+		<uiIconOffset>(0,0)</uiIconOffset>
+		<uiIconScale>0.8</uiIconScale>
 		<graphicData>
 			<texPath>Things/Building/Linked/RockstepFull</texPath>
 			<graphicClass>Graphic_Appearances</graphicClass>
-			<color>(240,240,240)</color>
-			<drawOffset>(0,-0.8,0)</drawOffset>
 		<linkType>Asymmetric</linkType>
 		<linkFlags>
 			<li>Custom2</li>
 		</linkFlags>
 		<asymmetricLink>
+			<linkToDoors>false</linkToDoors>
 			<linkFlags>
 				  <li>Wall</li>
 				  <li>Rock</li>
 			</linkFlags>
 		</asymmetricLink>
 		</graphicData>
-		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
+		<uiIconPath>Things/Building/Linked/SmoothLinkedIcon</uiIconPath>
 		<uiIconPathsStuff>
 		  <li>
 			<appearance>Planks</appearance>
-			<iconPath>Things/Building/Linked/WallPlanks_MenuIcon</iconPath>
+			<iconPath>Things/Building/Linked/PlanksLinkedIcon</iconPath>
 		  </li>
 		  <li>
 			<appearance>Bricks</appearance>
-			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
+			<iconPath>Things/Building/Linked/RockstepLinkedIcon</iconPath>
 		  </li>
 		</uiIconPathsStuff>
-		<neverMultiSelect>false</neverMultiSelect>
 		<placingDraggableDimensions>2</placingDraggableDimensions>
 		<altitudeLayer>TerrainScatter</altitudeLayer>
 		<blocksAltitudes>
 			<li>Floor</li>
 			<li>TerrainScatter</li>
 		</blocksAltitudes>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<thingClass>Building</thingClass>
 		<designationCategory>Floors</designationCategory>
 		<clearBuildingArea>true</clearBuildingArea>
 		<castEdgeShadows>false</castEdgeShadows>
-		<fillPercent>0</fillPercent>
 		<building>
-			<isFence>true</isFence>
+			<isFence>false</isFence>
 			<isInert>true</isInert>
 			<paintable>true</paintable>
 		</building>
+		<drawDamagedOverlay>false</drawDamagedOverlay>
 		<stuffCategories>
 			<li>Stony</li>
 			<li>Metallic</li>
-			<li>Woody</li>
-		</stuffCategories>
-		<costStuffCount>1</costStuffCount>
-		<researchPrerequisites>
-		  <li>Stonecutting</li>
-		</researchPrerequisites>
-	</ThingDef>	
-	
-	<!-- ================== Double Height, Under Slope, Linked =================== --> 	
-					<!-- Depreciated - Replaced -->
-	<ThingDef Name="Rockstep_Slope_Linked" ParentName="BuildingTerrainCoveringSingleBase" Abstract="True">
-		<defName>Rockstep_Slope_Linked</defName>
-		<label>full platform</label>
-		<description>A sizable slope, forming the edge of a section of rock or earth raising the ground.</description>
-		<graphicData>
-			<texPath>Things/Building/Linked/Rockstep1</texPath>
-			<graphicClass>Graphic_Appearances</graphicClass>
-			<color>(230,230,230)</color>
-			<linkType>Asymmetric</linkType>
-			<linkFlags>
-				<li>Custom3</li>
-			</linkFlags>
-			<asymmetricLink>
-				<linkFlags>
-						<li>Wall</li>
-						<li>Rock</li>
-						<li>Custom2</li> <!-- Upper -->
-				</linkFlags>
-			</asymmetricLink>
-			<!--<shadowData></shadowData> is there a way to cast them under invis?? -->
-		</graphicData>
-		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
-		<uiIconPathsStuff>
-		  <li>
-			<appearance>Bricks</appearance>
-			<iconPath>Things/Building/Linked/WallBricks_MenuIcon</iconPath>
-		  </li>
-		  <li>
-			<appearance>Planks</appearance>
-			<iconPath>Things/Building/Linked/WallPlanks_MenuIcon</iconPath>
-		  </li>
-		</uiIconPathsStuff>
-		<selectable>true</selectable>
-		<neverMultiSelect>false</neverMultiSelect>
-		<placingDraggableDimensions>2</placingDraggableDimensions>
-		<altitudeLayer>Floor</altitudeLayer>
-		<blocksAltitudes>
-			<li>Floor</li>
-		</blocksAltitudes>
-		<!-- <passability>PassThroughOnly</passability> not for decorative version -->
-		<pathCostIgnoreRepeat>false</pathCostIgnoreRepeat>
-		<pathCost>10</pathCost> <!--0,5,10..+3-->
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-		<thingClass>Building</thingClass>
-		<!--<designationCategory>None</designationCategory> Replaced by single tile variant-->
-		<clearBuildingArea>True</clearBuildingArea>
-		<castEdgeShadows>true</castEdgeShadows>
-		<fillPercent>0</fillPercent>
-		<blockPlants>true</blockPlants>
-		<building>
-			<isFence>true</isFence>
-			<isInert>true</isInert>
-			<paintable>true</paintable>
-		</building>
-		<stuffCategories>
-			<li>Metallic</li>
-			<li>Stony</li>
 			<li>Woody</li>
 		</stuffCategories>
 		<costStuffCount>1</costStuffCount>
